@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>index-todo</title>
+    </head>
+    <body>
+        <div class="">
+            <form class="" action="" method="post">
+                <input type="text" name="" value="">
+                <button type="submit" name="button">submit</button>
+            </form>
+        </div>
+        <div class="">
+            <input type="text" name="" value="" class="input">
+            <button type="button" name="button" class="add">add</button>
+        </div>
+        <div class="showmain">
+            <div class="show">
+                <button type="button" name="button" class="ok">ok</button>
+                <button type="button" name="button" class="del">del</button>
+                <span>study</span>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var log = function(){
+                console.log.apply(console, arguments)
+            }
+            var e = function(selector) {
+                return document.querySelector(selector)
+            }
+            var es = function(selector) {
+                return document.querySelector(selector)
+            }
+
+            var input = function() {
+                var inputValue = document.querySelector('.input').value
+                var t = `
+                <div class = 'show'>
+                <button type="button" name="button" class="ok">ok</button>
+                <button type="button" name="button" class="del">del</button>
+                <span>${inputValue}</span>
+                </div>
+                `
+                return t
+            }
+            // add todo
+            var insertTodo = function() {
+                log('1')
+                var add = e('.add')
+                add.addEventListener('click', function(){
+                    var show = e('.showmain')
+                    var t = input()
+                    show.insertAdjacentHTML('beforeend', t)
+                })
+            }
+            insertTodo()
+            // ok todo
+            // del todo
+            var howtodo = function(){
+                var Do = e('.showmain')
+                Do.addEventListener('click', function(event) {
+                    var target = event.target
+                    if (target.classList.contains('ok')) {
+                        var i = target.parentElement
+                        i.style = 'background:red'
+                    } else if( target.classList.contains('del')) {
+                        var j = target.parentElement
+                        j.remove()
+                    }
+                })
+            }
+            howtodo()
+        </script>
+    </body>
+</html>

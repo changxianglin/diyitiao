@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>基于数据级联</title>
+        <script type="text/javascript">
+            // var arr = new Array("A", "B", "C")
+            // arr[3] = 123
+            // for(var i = 0; i < arr.length; i++) {
+            //     console.log(arr[i])
+            // }
+            //
+            // for(temp in arr){
+            //     console.info('下标' + temp + ',值为：' + arr[temp])
+            // }
+            arr = new Array()
+            arr[1] = ['广州', '深圳', '珠海']
+            arr[2] = ['福州', '厦门', '泉州']
+            arr[3] = ['杭州', '绍兴', '金华']
+
+            // function addOption(val, txt) {
+            //     var opt = document.createElement("option")
+            //     opt.text = txt
+            //     opt.value = val
+            //     city.options.add(opt)
+            // }
+            // window.onload = function() {
+            //     var proSel = document.getElementById('province')
+            //     for (temp in arr) {
+            //          proSel.add(new Option(temp, temp))
+            //     }
+            // }
+            // function setCity() {
+            //     var citySel = document.getElementById('city')
+            //     citySel.options.length = 1
+            //     var pro = document.getElementById('province').value
+            //     if(pro == "") return
+            //     for(var i = 0; i < arr[pro].length; i++){
+            //         // citySel.add(new Option(arr[pro][i], arr[pro][i]))
+            //         addOption(arr[pro][i], arr[pro][i])
+            //     }
+            // }
+
+            window.onload = function(){
+                var child = document.querySelector('#child')
+                var c_length = child.options.length
+                if(c_length > 0) {
+                    for(var i = 0; i < c_length; i++){
+                        child.option.remove(0)
+                    }
+                }
+            }
+            function addOption(val, txt) {
+                var opt = document.createElement("option")
+                opt.text = txt
+                opt.value = val
+                child.options.add(opt)
+            }
+
+            function clickOpt() {
+                var parent = document.querySelector('#parent')
+                var p_value = parent.value;
+
+                var child = document.querySelector('#child')
+                var c_length = child.options.length
+                if(c_length > 0) {
+                    for (var i = 0; i < c_length; i++) {
+                        child.options.remove(0)
+                    }
+                }
+                if(p_value == '1') {
+                    for(var i = 0; i < arr[1].length; i++) {
+                        addOption(1, arr[1][i])
+                    }
+                } else if(p_value == '2'){
+                    for(var i = 0; i < arr[2].length; i++) {
+                        addOption(1, arr[2][i])
+                    }
+                } else if(p_value == '3') {
+                    for(var i = 0; i < arr[3].length; i++) {
+                        addOption(1, arr[3][i])
+                    }
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <select id="parent" onchange='clickOpt()'>
+            <option value="">选择省会</option>
+            <option value="1">广东</option>
+            <option value="2">福建</option>
+            <option value="3">浙江</option>
+        </select>
+        <select id="child">
+
+        </select>
+    </body>
+</html>

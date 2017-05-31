@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>demo</title>
+        <script type="text/javascript">
+            window.onload = function(){
+                var child = document.querySelector('#child')
+                var c_length = child.options.length
+                if(c_length > 0) {
+                    for(var i = 0; i < c_length; i++){
+                        child.option.remove(0)
+                    }
+                }
+            }
+            function addOption(val, txt) {
+                var opt = document.createElement("option")
+                opt.text = txt
+                opt.value = val
+                child.options.add(opt)
+            }
+
+            function clickOpt() {
+                var parent = document.querySelector('#parent')
+                var p_value = parent.value;
+
+                var child = document.querySelector('#child')
+                var c_length = child.options.length
+                if(c_length > 0) {
+                    for (var i = 0; i < c_length; i++) {
+                        child.options.remove(0)
+                    }
+                }
+                if(p_value == '1') {
+                    for(var i = 4; i <= 6; i++) {
+                        addOption(i, i * i)
+                    }
+                } else if(p_value == '2'){
+                    for(var i = 7; i <= 9; i++) {
+                        addOption(i, i * i)
+                    }
+                } else if(p_value == '3') {
+                    for(var i = 10; i <= 13; i++) {
+                        addOption(i, i * i)
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p style="text-align:center">
+            <select id='parent' onchange = "clickOpt()">
+                <option value="">请选择</option>
+                <option value="1">Ａ</option>
+                <option value="2">Ｂ</option>
+                <option value="3">Ｃ</option>
+            </select>
+            <select id="child">
+
+            </select>
+        </p>
+    </body>
+</html>

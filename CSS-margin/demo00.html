@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="css margin">
+        <title>css-margin</title>
+        <style media="screen">
+            .box {
+                width: 400px;
+                height: 200px;
+                background-color: olive;
+                overflow: hidden;
+            }
+            .box > div {
+                background-color: red;
+                margin: 50%;
+            }
+            p {
+                line-height: 2em;
+                margin: 1em 0;
+                background: #f0fef9;
+            }
+            .father {
+                background: #f0f3f9;
+            }
+            ul li {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .divfather {
+                height: 200px;
+                position: relative;
+                background-color: red;
+            }
+            .divson {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 500px;
+                height: 100px;
+                margin: auto;
+                background-color: blue;
+            }
+            .boxlist {
+                width: 1200px;
+                margin: auto;
+                background-color: orange;
+            }
+            .ul {
+                overflow: hidden;
+                margin-right: -20px;
+            }
+            .li {
+                width: 386.66px;
+                height: 300px;
+                margin-right: 20px;
+                background-color: green;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="boxin">
+
+            </div>
+        </div>
+        <p>first</p>
+        <p>second</p>
+        <div class="father">
+            <div class="son" style = "margin-top: 80px;">
+                son
+            </div>
+        </div>
+        <ul>
+            <li><input type="text" name="" value="1"></li>
+            <li><input type="text" name="" value="1"></li>
+            <li><input type="text" name="" value="1"></li>
+            <li><input type="text" name="" value="1"></li>
+            <li><input type="text" name="" value="1"></li>
+            <li><input type="text" name="" value="1"></li>
+        </ul>
+        <div class="divfather">
+            <div class="divson">
+
+            </div>
+        </div>
+        <div class="boxlist">
+            <div class="ul">
+                <div class="li">
+                    列表1
+                </div>
+                <div class="li">
+                    列表2
+                </div>
+                <div class="li">
+                    列表3
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

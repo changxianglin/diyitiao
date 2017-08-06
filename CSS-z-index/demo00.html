@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="z-index">
+        <title>z-index</title>
+        <style media="screen">
+            .box {
+                background-color: blue;
+            }
+            .box > div {
+                background-color: blue;
+                display: flex;
+            }
+            .box > div {
+                z-index: 1;
+            }
+            .box > div > img {
+                position: relative;
+                z-index: -1;
+            }
+            [type = submit] {
+                position: absolute;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <p>七层层叠循序</p>
+        <div class="box">
+            <div class="">
+                <img src="" alt="wutu">
+            </div>
+        </div>
+        <form class=""  method="post">
+            <input required="required">
+            <input type="submit"  id = "submitt" name="" value="">
+            <label for="submit">submit</label>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for for">
+        <title>demo for</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var a = "zhangxianglin"
+            var num = function(value) {
+                var res = []
+                for (var i = 0; i < value.length; i++) {
+                    res.push(value[i])
+                }
+                var s = res.join("+")
+                console.log(s)
+                return s
+            }
+            num(a)
+            var re = function(value, str, strin) {
+                var res = ''
+                for (var i = 0; i < value.length; i++) {
+                        if (value[i] == str) {
+                            res += value[i].replace(str, strin)
+                        } else {
+                            res += value[i]
+                        }
+                }
+                console.log(res)
+                return res
+            }
+            re("zhangxianglin", "n", "O")
+        </script>
+    </body>
+</html>

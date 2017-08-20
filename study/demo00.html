@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="引用数据类型">
+        <title>demo00</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var log = function () {
+                return console.log.apply(console, arguments)
+            }
+        </script>
+        <!-- <script type="text/javascript">
+            var log = function () {
+                return console.log.apply(console, arguments)
+            }
+
+            var person = new Object()
+            var person = new Object()
+            person.name = "Nicholas"
+            person.age = 29
+            var person = {
+                name : "Nicholas",
+                age : 29,
+            }
+            var person = {}
+            person.name = "Nicholas"
+            person.age = 29
+
+            function displayInfo(args) {
+                var output = ""
+
+                if (typeof args.name == "string") {
+                    output += "Name: " + args.name + "\n"
+                }
+
+                if (typeof args.age == "number") {
+                    output += "Age: " + args.age + "\n"
+                }
+                alert(output)
+            }
+
+            displayInfo({
+                name : "Nicholas",
+                age : 29,
+            })
+            displayInfo({
+                name : "Greg",
+            })
+            var initperson = {}
+                initperson["first name"] = "Zhang Xianglin"
+            console.log(initperson["first name"])
+
+            // Array
+            var colors = new Array()
+
+            var colors = new Array(20)
+
+            var colors = new Array("red", "blue", "green")
+
+            var colors = new Array(3)
+            var names = new Array("Greg")
+
+            // 可以省略 new
+            var colors = Array()
+            var names = Array("Greg")
+
+            var colors = ["red", "blue", "green"]
+            var names = []
+            var values = [1, 2]
+            var options = [, , , , ,]
+
+            var colors = ["red", "blue", "green"]
+            alert(colors[0])
+            colors[2] = "black"
+            colors[3] = "brown"
+
+            var colors = ["red", "blue", "green"]
+            var names = []
+
+            alert(colors.length)
+            alert(names.length)
+
+            var colors = ["red", "blue", "green"]
+            colors.length = 2
+            alert(colors[2])
+
+            var colors = ["red", "blue", "green"]
+            colors.length = 4
+            alert(colors[3])
+
+            var colors = ["red", "blue", "green"]
+            colors[colors.length] = "black"
+            colors[colors.length] = "brown"
+            console.log(colors)
+
+            // if (values instanceof Array) {
+            //
+            // }
+            //
+            // if (Array.isArray(value)) {
+            //
+            // }
+
+            var colors = ["red", "blue", "green"]
+            alert(colors.toString())
+            alert(colors.valueOf())
+            alert(colors)
+
+            var person1 = {
+                toLocaleString : function () {
+                    return "Nikolaos"
+                },
+
+                toString: function () {
+                    return "Nicholas"
+                },
+            }
+
+            var person2 = {
+                toLocaleString : function () {
+                    return "Grigorios"
+                },
+
+                toSting : function () {
+                    return "Greg"
+                },
+            }
+
+
+        </script> -->
+        <script type="text/javascript">
+        var person1 = {
+            toLocaleString : function () {
+                return "Nikolaos"
+            },
+
+            toString: function () {
+                return "Nicholas"
+            },
+        }
+
+        var person2 = {
+            toLocaleString : function () {
+                return "Grigorios"
+            },
+
+            toString : function () {
+                return "Greg"
+            },
+        }
+
+        var people = [person1, person2]
+        log(people)
+        log(people.toString())
+        log(people.toLocaleString())
+
+        var colors = ["red", "blue", "green", ""]
+        log(typeof(colors.join(",")))
+        log(colors.join("||"))
+
+        var colors = new Array()
+        var count = colors.push("red", "blue")
+        log(count)
+
+        count = colors.push("black")
+        log(count)
+
+        var item = colors.pop()
+        log(item)
+        log(colors.length)
+
+        var colors = ["red", "blue", "green"]
+        colors.push("brown")
+        colors[3] = "black"
+        log(colors.length)
+
+        var item = colors.pop()
+        log(item)
+
+        var colors = new Array()
+        var count = colors.push("red", "green")
+        log("shift", count)
+
+        count = colors.push("black")
+        log(count)
+
+        var item = colors.shift()
+        log(item)
+        log(colors.length)
+
+        var colors = new Array()
+        var count = colors.unshift("red", "blue", "green")
+        log("unshift", count)
+
+        count = colors.unshift("black")
+        log(count)
+
+        var item = colors.pop()
+        log(item)
+
+        // 排序方法
+        var values = [1, 2, 3, 4, 5]
+        values.reverse()
+        log("排序", values)
+
+        var values = [0, 1, 5, 10, 15]
+        values.sort()
+        log(values)
+
+        function compare (value1, value2) {
+            if (value1 < value2) {
+                return -1
+            } else if (value1 > value2) {
+                return 1
+            } else {
+                return 0
+            }
+        }
+
+        var values = [0, 1, 5, 10, 15]
+        values.sort(compare)
+        log(values)
+
+        function compare (value1, value2) {
+            if (value1 < value2) {
+                return 1
+            } else if (value1 > value2) {
+                return -1
+            } else {
+                return 0
+            }
+        }
+        var values = [0, 1, 5, 10, 15]
+        values.sort(compare)
+        log(values)
+
+        // function compare (value1, value2) {
+        //     return value1 - value2
+        // }
+
+        // 操作方法
+        var colors = ["red", "blue", "green"]
+        var colors2 = colors.concat("yellow", ["black", "brown"])
+
+        log(colors)
+        log(colors2)
+
+        var colors = ["red", "blue", "green", "yellow", "purple"]
+        var colors2 = colors.slice(1)
+        var colors3 = colors.slice(1, 4)
+        var colors0 = colors.slice(0)
+
+        log("slice", colors2)
+        log(colors3)
+        log(colors0)
+
+
+        var colors = ["red", "green", "blue"]
+        var removed = colors.splice(0, 1)
+        log("splice", colors)
+        log(removed)
+
+        removed = colors.splice(1, 0, "yellow", "orange")
+        log(colors)
+        log(removed)
+
+        var removed = colors.splice(1, 1, "red", "purple")
+        log(colors)
+        log(removed)
+
+        // 位置方法
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+        log("wivifhfas", numbers.indexOf(3))
+        log(numbers.lastIndexOf(3))
+
+        </script>
+    </body>
+</html>

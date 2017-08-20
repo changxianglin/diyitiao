@@ -194,3 +194,90 @@ function callSum(num1, num2) {
 }
 
 log("call", callSum(10, 10))
+
+window.color = "red"
+var o = {color : "blue"}
+
+function sayColor() {
+    log(this.color)
+}
+
+sayColor()
+log("call this")
+sayColor.call(this)
+sayColor.call(window)
+sayColor.call(o)
+
+window.color = "red"
+var o = { color: "blue"}
+
+function sayColor() {
+    log(this.color)
+}
+
+var objectSayColor = sayColor.bind(o)
+objectSayColor()
+
+
+// 基本包装类型
+
+var s1 = "some text"
+var s2 = s1.substring(2)
+log(s2)
+
+var s1 = "some text"
+s1.color = "red"
+log(s1.color)
+
+var obj = new Object("some text")
+log(obj instanceof String)
+
+var value = "25"
+var number = Number(value)
+log(typeof number)
+
+var obj = new Number(value)
+log(typeof obj)
+
+var booleanObject = new Boolean(true)
+
+var falseObject = new Boolean(false)
+var result = falseObject && true
+log("boolean", result)
+
+var falseValue = false
+result = falseValue && true
+log(result)
+
+log("typeof && instaceof ")
+log(typeof falseObject)
+log(typeof falseValue)
+log(falseObject instanceof Boolean)
+log(falseValue instanceof Boolean)
+
+var numberObject = new Number(10)
+
+log("Number 类型  ")
+var num = 10
+log(num.toString())
+log(num.toString(2))
+log(num.toString(8))
+log(num.toString(10))
+log(num.toString(16))
+
+var num = 10
+log(num.toFixed(2))
+log(typeof num.toFixed(2))
+
+var num = 10
+log(num.toExponential(1))
+log(num.toExponential(2))
+log(num.toExponential(3))
+
+var numberObject = new Number(10)
+var numberValue = 10
+log(typeof numberObject)
+log(typeof numberValue)
+log(numberObject instanceof Number)
+log(numberValue instanceof Number)
+// 2017.08.21

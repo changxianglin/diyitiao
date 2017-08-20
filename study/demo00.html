@@ -276,6 +276,103 @@
         log("wivifhfas", numbers.indexOf(3))
         log(numbers.lastIndexOf(3))
 
+        log(numbers.indexOf(4, 4))
+        log(numbers.lastIndexOf(4, 4))
+
+        var person = { name : "Nicholas" }
+        var people = [{name : "Nicholas"}]
+
+        var morePeople = [person]
+
+        log(people.indexOf(person))
+        log(morePeople.indexOf(person))
+        log("Array")
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+        var everyResult = numbers.every(function(item, index, array) {
+            return (item > 2)
+        })
+        log("every", everyResult)
+
+        var someResult = numbers.some(function(item, index, array) {
+            return (item > 2)
+        })
+        log("some", someResult)
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+        var filterResult = numbers.filter(function(item, index, array) {
+            return (item > 2)
+        })
+        var filterNumber = numbers.filter(function(item, index, array) {
+            return (item != 1)
+        })
+        log("filter", filterResult)
+        log("filter==", filterNumber)
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+        var mapResult = numbers.map(function (item, index, array) {
+            return item * 2
+        })
+        log(mapResult)
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+        numbers.forEach ( function (item, index, array) {
+            log(item * 3)
+        })
+
+        var values = [1, 2, 3, 4, 5]
+        var sum = values.reduce(function(prev, cur, index, array) {
+            return prev + cur
+        })
+        log("reduce", sum)
+
+        var values = [1, 2, 3, 4, 5]
+        var sum = values.reduceRight(function(prev, cur, index, array) {
+            return prev + cur
+        })
+        log("reduceRight", sum)
+
+
+
+
+        </script>
+        <script type="text/javascript">
+            // Date 类型
+            var now = new Date()
+            log(now)
+
+            var someDate = new Date(Date.parse("May 25, 2004"))
+            log(someDate)
+
+            var someDate = new Date("may 25, 2005")
+            log(someDate)
+
+            var y2k = new Date(Date.UTC(2000, 0))
+            log(y2k)
+
+            var allFive = new Date(Date.UTC(2005, 4, 5, 17, 55, 55))
+            log(allFive)
+
+            var start = Date.now()
+            // doSomething()
+
+            var stop = Date.now()
+                result = stop - start
+                log(result)
+
+            var start = +new Date()
+
+            var stop = +new Date()
+                result = stop - start
+
+            var date1 = new Date(2007, 0, 1)
+            var date2 = new Date(2007, 1, 1)
+
+            log(date1 < date2)
+            log(date1 > date2)
         </script>
     </body>
 </html>

@@ -467,5 +467,6 @@ var demo02 = function() {
     var color = colors[selecFrom(0, colors.length - 1)]
     log(color)
 
+
 }
-demo02()
+// demo02()

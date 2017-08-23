@@ -166,5 +166,243 @@ var demo04 = function() {
 
         log(Object.getPrototypeOf(person1) == Person.prototype)
         log(Object.getPrototypeOf(person1).name)
+
+        function Person() {}
+
+        Person.prototype.name = "Nicholas"
+        Person.prototype.age = 29
+        Person.prototype.job = "Software Engineer"
+        Person.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        var person1 = new Person()
+        var person2 = new Person()
+
+        person1.name = "Greg"
+        log("prototype", person1.name)
+        log(person2.name)
+
+        function Person() {}
+
+        Person.prototype.name = "Nicholas"
+        Person.prototype.age = 29
+        Person.prototype.job = "Software Engineer"
+        Person.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        var person1 = new Person()
+        var person2 = new Person()
+
+        person1.name = "Greg"
+        log("111", person1.name)
+        log(person2.name)
+
+        delete person1.name
+        log(person1.name)
+
 }
-demo04()
+// demo04()
+
+var demo05 = function() {
+    log("***检测对象及原型对象***")
+
+    function Person() {
+
+    }
+
+    Person.prototype.name = "Nicholas"
+    Person.prototype.age = 29
+    Person.prototype.job = "Software Engineer"
+    Person.prototype.sayName = function() {
+        log(this.name)
+    }
+
+    var person1 = new Person()
+    var person2 = new Person()
+
+    log(person1.hasOwnProperty("name"))
+
+    person1.name = "Greg"
+    log(person1.name)
+    log(person1.hasOwnProperty("name"))
+
+    log(person2.name)
+    log(person2.hasOwnProperty("name"))
+
+    delete person1.name
+    log("delete", person1.name)
+    log(person1.hasOwnProperty("name"))
+
+
+}
+// demo05()
+
+var demo06 = function() {
+        log("*** in & for in & hasOwnProperty***")
+
+        function Person() {
+
+        }
+
+        Person.prototype.name = "Nicholas"
+        Person.prototype.age = 29
+        Person.prototype.job = "Software Engineer"
+        Person.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        var person1 = new Person()
+        var person2 = new Person()
+
+        log(person1.hasOwnProperty("name"))
+        log("name" in person1)
+
+        person1.name = "Greg"
+        log("in", person1.name)
+        log(person1.hasOwnProperty("name"))
+        log("name" in person1)
+
+        log(person2.name)
+        log("hasOwnProperty", person2.hasOwnProperty("name"))
+        log("name" in person2)
+
+        delete person1.name
+        log(person1.name)
+        log(person1.hasOwnProperty("name"))
+        log("name" in person1)
+
+
+        function hasPrototypeProperty(object, name) {
+            return !object.hasOwnProperty(name) && (name in object)
+        }
+}
+// demo06()
+
+var demo07 = function() {
+        log("in && hasOwnproPerty")
+
+
+        // 检测只是原型的对象
+        function hasPrototypeProperty(object, name) {
+            return !object.hasOwnProperty(name) && (name in object)
+        }
+
+
+        function Person() {
+
+        }
+
+        Person.prototype.name = "Nicholas"
+        Person.prototype.age = 29
+        Person.prototype.job = "Software Engineer"
+        Person.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        var person = new Person()
+        log(hasPrototypeProperty(person, "name"))
+
+        person.name = "Greg"
+        log(hasPrototypeProperty(person, "name"))
+
+
+        var o = {
+            toString: function() {
+                return "My Object"
+            }
+        }
+
+        for(var prop in o) {
+            log(prop)
+            if (prop == "toString") {
+                log("Found to String")
+            }
+        }
+
+}
+// demo07()
+
+
+var demo08 = function() {
+        log("*** Object.keys()***")
+
+
+        function Person() {
+
+        }
+
+        Person.prototype.name = "Nicholas"
+        Person.prototype.age = 29
+        Person.prototype.job = "Software Engineer"
+        Person.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        var keys = Object.keys(Person.prototype)
+        log(keys)
+
+        var p1 = new Person()
+        p1.name = "Rob"
+        p1.age = 31
+        var p1keys = Object.keys(p1)
+        log(p1keys)
+
+        var keys = Object.getOwnPropertyNames(Person.prototype)
+        log(keys)
+}
+// demo08()
+
+
+var demo09 = function() {
+        log("*** easy prototype ***")
+
+        function Person() {
+
+        }
+
+        Person.prototype = {
+            name: "Nicholas",
+            age: 29,
+            job: "Software Engineer",
+            sayName: function() {
+                log(this.name)
+            },
+        }
+
+        var friend = new Person()
+
+        log(friend instanceof Object)
+        log(friend instanceof Person)
+        log(friend.constructor == Person)
+        log(friend.constructor == Object)
+}
+// demo09()
+
+
+var demo10 = function() {
+    log("*** constructor ***")
+
+    function Person() {
+
+    }
+
+    Person.prototype = {
+        constructor: Person,
+        name: "Nicholas",
+        age: 29,
+        job: "Software Engineer",
+        sayName: function() {
+            log(this.name)
+        },
+    }
+
+    var friend = new Person()
+
+    log(friend instanceof Object)
+    log(friend instanceof Person)
+    log(friend.constructor == Person)
+    log(friend.constructor == Object)
+}
+demo10()

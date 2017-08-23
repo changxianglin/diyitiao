@@ -404,5 +404,159 @@ var demo10 = function() {
     log(friend instanceof Person)
     log(friend.constructor == Person)
     log(friend.constructor == Object)
+
+    var friend = new Person()
+
+    Person.prototype.sayHi = function() {
+        log('hi')
+    }
+
+    friend.sayHi()
+
 }
-demo10()
+// demo10()
+
+var demo11 = function() {
+        log("*** 原型的动态性 ***")
+        function Person() {
+
+        }
+
+        Person.prototype.sayHi = function() {
+            log('hi')
+        }
+
+}
+// demo11()
+
+var demo12 = function() {
+        log("*** 原生对象的原型 ***")
+
+        log(typeof Array.prototype.sort)
+        log(typeof String.prototype.substring)
+
+        String.prototype.startsWith = function(text) {
+            return this.indexOf(text) == 0
+        }
+
+        var msg = "Hello world!"
+        log(msg.startsWith("Hello"))
+
+        log("*** 原型对象的问题 ***")
+
+        function Person() {
+
+        }
+
+        Person.prototype = {
+            constructor: Person,
+            name: "Nicholas",
+            age: 29,
+            job: "Software Engineer",
+            friends: ["Shelby", "Court"],
+            sayName: function() {
+                log(this.name)
+            }
+        }
+
+        var person1 = new Person()
+        var person2 = new Person()
+
+        person1.friends.push("Van")
+
+        log(person1.friends)
+        log(person1.friends)
+        log(person1.friends === person2.friends)
+
+
+}
+// demo12()
+
+var demo13 = function() {
+        log("*** 组合使用构造函数模式和原型模式 ***")
+
+
+        function Person(name, age, job) {
+            this.name = name
+            this.age = age
+            this.job = job
+            this.friends = ["Shelby", "Court"]
+        }
+
+        Person.prototype = {
+            constructor: Person,
+            sayName: function() {
+                log(this.name)
+            }
+        }
+
+        var person1 = new Person("Nicholas", 29, "Software Engineer")
+        var person2 = new Person("Greg", 27, "Doctor")
+
+        person1.friends.push("Van")
+        log(person1.friends)
+        log(person2.friends)
+        log(person1.friends === person2.friends)
+        log(person1.sayName === person2.sayName )
+
+
+}
+
+// demo13()
+
+var demo14 = function() {
+        log("*** 动态原型 ***")
+
+        function Person(name, age, job) {
+            this.name = name
+            this.age = age
+            this.job = job
+
+            // 方法
+            if(typeof this.sayName != "function") {
+
+                Person.prototype.sayName = function() {
+                    log(this.name)
+                }
+            }
+        }
+
+        var friend = new Person("Nicholas", 29, "Software Engineer")
+        friend.sayName()
+}
+// demo14()
+
+var demo15 = function() {
+        log("*** 寄生构造函数模式 ***")
+
+        function Person(name, age, job) {
+            var o = new Object()
+            o.name = name
+            o.age = age
+            o.job = job
+            o.sayName = function() {
+                // log("yes")
+                log(this.name)
+            }
+            return o
+        }
+
+        var friend = new Person("Nicholas", 29, "Software Engineer")
+        friend.sayName()
+
+        function SpecialArray() {
+
+            var values = new Array()
+
+            values.push.apply(values, arguments)
+
+            values.toPipedString = function() {
+                return this.join("|")
+            }
+            return values
+        }
+
+        var colors = new SpecialArray("red", "blue", "green")
+        log(colors.toPipedString())
+}
+demo15()

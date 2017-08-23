@@ -559,4 +559,30 @@ var demo15 = function() {
         var colors = new SpecialArray("red", "blue", "green")
         log(colors.toPipedString())
 }
-demo15()
+// demo15()
+
+var demo16 = function() {
+        log("*** 稳妥构造函数模式 ***")
+
+
+        function Person(name, age, job) {
+            var o = new Object()
+            o.sayName = function() {
+                log(name)
+            }
+            return o
+        }
+
+        var friend = Person("Nicholas", 29, "Software Engineer")
+        friend.sayName()
+}
+// demo16()
+
+var demo17 = function() {
+        log("*** 继承 ***")
+
+
+        function SuperType() {
+            this.property = ture
+        }
+ }

@@ -583,6 +583,343 @@ var demo17 = function() {
 
 
         function SuperType() {
-            this.property = ture
+            this.property = true
         }
+
+        SuperType.prototype.getSuperValue = function() {
+            return this.property
+        }
+
+        function SubType() {
+            this.subProperty = false
+        }
+
+        SubType.prototype = new SuperType()
+
+        SubType.prototype.getSubValue = function() {
+            return this.subProperty
+        }
+
+        var instance = new SubType
+        log(instance.getSuperValue())
+
+        log(instance instanceof Object)
+        log(instance instanceof SuperType)
+        log(instance instanceof SubType)
+
+        log(Object.prototype.isPrototypeOf(instance))
+        log(SuperType.prototype.isPrototypeOf(instance))
+        log(SubType.prototype.isPrototypeOf(instance))
  }
+// demo17()
+
+var demo18 = function() {
+        log("*** 忘记默认的原型链 ***")
+
+        function SuperType() {
+            this.property = true
+        }
+
+        SuperType.prototype.getSuperValue = function() {
+            return this.property
+        }
+
+        function SubType() {
+            this.subProperty = false
+        }
+
+        SubType.prototype = new SuperType()
+
+        // SubType.prototype.getSubValue = function() {
+        //     return this.subProperty
+        // }
+
+
+        SubType.prototype.getSubValue = function() {
+            return this.subproperty
+        }
+
+
+        SubType.prototype.getSuperValue = function() {
+            return false
+        }
+
+        var instance = new SubType
+        log(instance.getSuperValue())
+
+}
+// demo18()
+
+var demo19 = function() {
+    log("原型链的问题")
+
+    function SuperType() {
+        this.colors = ["red", "blue", "green"]
+    }
+
+    // SuperType.prototype.getSuperValue = function() {
+    //     return this.property
+    // }
+
+    function SubType() {
+
+    }
+
+    SubType.prototype = new SuperType()
+
+    // SubType.prototype.getSubValue = function() {
+    //     return this.subProperty
+    // }
+
+
+    // SubType.prototype.getSubValue = function() {
+    //     return this.subproperty
+    // }
+
+
+    // SubType.prototype.getSuperValue = function() {
+    //     return false
+    // }
+
+    var instance = new SubType()
+    instance.colors.push("black")
+    log(instance.colors)
+
+    var instance2 = new SubType()
+    log(instance2.colors)
+}
+// demo19()
+
+var demo20 = function() {
+        log("*** 借用组合式继承 ***")
+
+
+        function SuperType() {
+            this.colors = ["red", "blue", "green"]
+        }
+
+
+
+        function SubType() {
+            SuperType.call(this)
+        }
+
+
+        var instance = new SubType()
+        instance.colors.push("black")
+        log(instance.colors)
+
+        var instance2 = new SubType()
+        log(instance2.colors)
+
+
+}
+// demo20()
+var demo21 = function() {
+        log("*** 传递参数 ***")
+
+
+        function SuperType(name) {
+            this.name = name
+        }
+
+        function SubType() {
+            SuperType.call(this, "Nicholas")
+            this.age = 29
+        }
+
+        var instance = new SubType()
+        log(instance.name)
+        log(instance.age)
+}
+// demo21()
+
+var demo22 = function() {
+        log("*** 组合继承 ***")
+
+        function SuperType(name) {
+            this.name = name
+            this.colors = ["red", "blue", "green"]
+        }
+
+        SuperType.prototype.sayName = function() {
+            log(this.name)
+        }
+
+        function SubType(name, age) {
+            SuperType.call(this, name)
+            this.age = age
+        }
+
+        SubType.prototype = new SuperType()
+        SubType.prototype.constructor = SubType
+        SubType.prototype.sayAge = function() {
+            log(this.age)
+        }
+
+        var instance1 = new SubType("Nicholas", 29)
+        instance1.colors.push("black")
+        log(instance1.colors)
+        instance1.sayName()
+        instance1.sayAge()
+
+        var instance2 = new SubType("Greg", 27)
+        log(instance2.colors)
+        instance2.sayName()
+        instance2.sayAge()
+
+}
+// demo22()
+
+var demo23 = function() {
+        log("*** 原型式继承 ***")
+
+        function object(o) {
+            function F() {}
+            F.prototype = o
+            return new F()
+        }
+
+        var person = {
+            name: "Nicholas",
+            friends: ["Shely", "Court", "Van"]
+        }
+
+        var anotherPerson = Object(person)
+        anotherPerson.name = "Greg"
+        anotherPerson.friends.push("Rob")
+
+        var yetAnotherPerson = Object(person)
+        yetAnotherPerson.name = "Linda"
+        yetAnotherPerson.friends.push("Barbie")
+
+        log(person.friends)
+}
+// demo23()
+
+var demo24 = function() {
+        log("***")
+
+        function object(o) {
+            function F() {}
+            F.prototype = o
+            return new F()
+        }
+
+        var person = {
+            name: "Nicholas",
+            friends: ["Shely", "Court", "Van"]
+        }
+
+        var anotherPerson = Object.create(person)
+        anotherPerson.name = "Greg"
+        anotherPerson.friends.push("Rob")
+
+        var yetAnotherPerson = Object.create(person)
+        yetAnotherPerson.name = "Linda"
+        yetAnotherPerson.friends.push("Barbie")
+
+        log(person.friends)
+
+}
+// demo24()
+
+var demo25 = function() {
+        log("*** 寄生式继承 ***")
+
+        function createAnother(original) {
+            var clone = Object(original)
+            clone.sayHi = function() {
+                log("hi")
+            }
+            return clone
+        }
+
+        var person = {
+            name: "Nicholas",
+            friends: ["Shely", "Court", "Van"],
+        }
+
+        var anotherPerson = createAnother(person)
+        anotherPerson.sayHi()
+}
+// demo25()
+
+var demo26 = function() {
+    function SuperType() {
+        this.colors = ["red", "blue", "green"]
+    }
+
+
+
+    function SubType() {
+        SuperType.call(this)
+    }
+
+
+    var instance = new SubType()
+    instance.colors.push("black")
+    log(instance.colors)
+
+    var instance2 = new SubType()
+    log(instance2.colors)
+
+
+}
+// demo20()
+var demo21 = function() {
+    log("*** 传递参数 ***")
+
+
+    function SuperType(name) {
+        this.name = name
+    }
+
+    function SubType() {
+        SuperType.call(this, "Nicholas")
+        this.age = 29
+    }
+
+    var instance = new SubType()
+    log(instance.name)
+    log(instance.age)
+}
+// demo21()
+
+var demo22 = function() {
+    log("*** 组合继承 ***")
+
+    function SuperType(name) {
+        this.name = name
+        this.colors = ["red", "blue", "green"]
+    }
+
+    SuperType.prototype.sayName = function() {
+        log(this.name)
+    }
+
+    function SubType(name, age) {
+        SuperType.call(this, name)
+        this.age = age
+    }
+
+    function inheritPrototype(subType, superType) {
+        var prototype = Object(superType.prototype)
+        prototype.constructor = subType
+        subType.prototype = prototype
+    }
+
+    inheritPrototype(SubType, SuperType)
+    
+    var instance1 = new SubType("Nicholas", 29)
+    instance1.colors.push("black")
+    log(instance1.colors)
+    instance1.sayName()
+    instance1.sayAge()
+
+    var instance2 = new SubType("Greg", 27)
+    log(instance2.colors)
+    instance2.sayName()
+    instance2.sayAge()
+}
+demo26()

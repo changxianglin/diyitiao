@@ -910,7 +910,7 @@ var demo22 = function() {
     }
 
     inheritPrototype(SubType, SuperType)
-    
+
     var instance1 = new SubType("Nicholas", 29)
     instance1.colors.push("black")
     log(instance1.colors)
@@ -922,4 +922,4 @@ var demo22 = function() {
     instance2.sayName()
     instance2.sayAge()
 }
-demo26()
+// demo26()

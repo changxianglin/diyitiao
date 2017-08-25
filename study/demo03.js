@@ -314,5 +314,79 @@ var dmeo17 = function() {
 // demo17()
 
 var demo18 = function() {
-    
+        log("*** 私有变量 ***")
+
+        function add(num1, num2) {
+            var sum = num1 + num2
+            return sum
+        }
 }
+// demo18()
+
+var demo19 = function() {
+    log("*** 特权方法 ***")
+
+    function MyObject() {
+
+        var privateVariable = 10
+
+        function privateFunction() {
+            return false
+        }
+
+        this.publicMethod = function() {
+            privateVariable++
+            return privateFunction()
+        }
+    }
+
+}
+// demo19()
+
+var demo20 = function() {
+        log("*** 特权方法 ***")
+
+        function Person(name) {
+            this.getName = function() {
+                return name
+            }
+            this.setName = function(value) {
+                name = value
+            }
+        }
+
+        var person = new Person("Nicholas")
+        log(person.getName())
+        person.setName("Greg")
+        log(person.getName())
+}
+// demo20()
+
+var demo21 = function() {
+        log("*** 静态私有变量 ***")
+
+        (function() {
+            var privateVariable = 10
+
+            function privateFunction() {
+                return false
+            }
+
+            MyObject = function() {
+
+            }
+
+            MyObject.prototype.publicMethod = function() {
+                privateVariable++
+                return privateFunction()
+            }
+        })()
+}
+// demo21()
+
+var demo22 = function() {
+        log("*** 模块模式 ***")
+
+        
+}
+demo22()

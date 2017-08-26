@@ -410,3 +410,8 @@ var demo22 = function() {
         }()
 }
 demo22()
+
+var demo23 = function() {
+
+}
+demo23()

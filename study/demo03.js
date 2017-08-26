@@ -387,6 +387,26 @@ var demo21 = function() {
 var demo22 = function() {
         log("*** 模块模式 ***")
 
-        
+        var singleton = {
+            name: "value",
+            method: function() {
+
+            },
+        }
+
+        var singleton = function() {
+            var privateVariable = 10
+
+            function privateFunction() {
+                return false
+            }
+            return {
+                publicProperty: true,
+                publicMethod: function() {
+                    privateVariable++
+                    return privateFunction()
+                }
+            }
+        }()
 }
 demo22()

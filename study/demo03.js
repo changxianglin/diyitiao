@@ -409,9 +409,55 @@ var demo22 = function() {
             }
         }()
 }
-demo22()
+// demo22()
 
 var demo23 = function() {
+        log("**** *****")
 
+        var singleton = function() {
+
+            var privateVariable = 10
+
+            function privateFunction() {
+                return false
+            }
+
+            var object = new Customtype()
+
+            object.publicProperty = true
+
+            object.publicMethod = function() {
+                privateVariable++
+                return privateFunction()
+            }
+
+            return object
+        }
 }
-demo23()
+// demo23()
+
+var demo24 = function() {
+        log("*** siyb ***")
+
+        var application = function() {
+
+            var components = new Array()
+
+            components.push(new BaseComponent())
+
+            var app = new BaseComponent()
+
+            app.getComponentCount = function() {
+                return components.length
+            }
+
+            app.registerComponent = function(component) {
+                if (typeof component == "object") {
+                    components.push(components)
+                }
+            }
+
+            return app
+        }()
+}
+// demo24()

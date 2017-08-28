@@ -177,5 +177,21 @@ var demo01 = function() {
 
         alert(hasPlugin("QuickTime"))
 
+        history.go(-1)
+
+        history.go(1)
+
+        history.go(2)
+
+        history.go("wrox.com")
+
+        history.go("nczonline.net")
+
+        history.back()
+
+        history.forward()
+
+        
+
 }
 // demo01()

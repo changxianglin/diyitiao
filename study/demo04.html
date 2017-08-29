@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>example createElement</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var demo00 = function() {
+                var div = document.createElement("div")
+                div.id = "myNewDiv"
+                div.value = "zhnagxianglin"
+                div.clasName = "box"
+                document.body.appendChild(div)
+                // appendData(text)
+
+
+
+            }
+            // demo00()
+
+            var demo01 = function() {
+                var div = document.querySelector("myNewDiv")
+                // var textNode = div.firstChild
+                // div.nodeValue = "Some other message"
+                // document.appendData("Some other message")
+            }
+            // demo01()
+
+            var demo02 = function() {
+                var textNode = document.createTextNode("<strong>Hello</strong> world")
+
+                var element = document.createElement("div")
+                element.className = "message"
+
+                var textNode = document.createTextNode("Hello world!")
+                element.appendChild(textNode)
+
+                var anotherTextNode = document.createTextNode("Yippee!")
+                element.appendChild(anotherTextNode)
+
+                document.body.appendChild(element)
+            }
+            demo02()
+        </script>
+    </body>
+</html>

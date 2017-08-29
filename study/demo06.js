@@ -45,4 +45,4 @@ var demo00 = function() {
 
         var hasXmlDom = document.implementation.hasFeature("XML", "1.0")
 }
-demo00()
+// demo00()

@@ -73,8 +73,42 @@
                 div.setAttribute("lang", "fr")
                 div.setAttribute("dir", "rlt")
 
+
             }
             // demo03()
+
+            var demo04 = function() {
+                var pairs = new Array(),
+                attrName,
+                attrVlaue,
+                i,
+                len;
+
+                for ( i = 0, len = element.attributes.length; i < len; i++) {
+                    attrName = element.attributes[i].nodeName
+                    attrValue = element.attributes[i].nodeValue
+                    pairs.push(attrName + "=\"" + attrValue + "\"")
+                }
+                return pairs.join(" ")
+
+                function outputAtrributes(element) {
+                    var pairs = new Array(),
+                    attrName,
+                    attrVale,
+                    i,
+                    len;
+
+                    for (i = 0, len = element.attributes; i < len; i++) {
+                        attrName = element.attributes[i].nodeName
+                        attrValue = element.attributes[i].nodeValue
+                        if (element.attributes[i].specified) {
+                            pairs.push(attrName + "=\"" + attriValue + "\"")
+                        }
+                    }
+                    return pairs.join(" ")
+                }
+            }
+            // demo04()
         </script>
     </body>
 </html>

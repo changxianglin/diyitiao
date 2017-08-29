@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dom</title>
+    </head>
+    <body>
+        <p>The current date and time</p>
+        <p id = "times"></p>
+        <script type="text/javascript">
+            var showTime = function() {
+                document.write("<strong id = 'time'>" + (new Date()).toString() + "</strong>")
+            }
+            // showTime()
+            var writes = function() {
+                document.write("<script type = \"text/javascript\" src = \"file.js\">" + "<\/script>")
+            }
+            // writes()
+
+            var writeAll = function() {
+                window.onload = function() {
+                    document.write("Hello world!")
+                }
+            }
+            // writeAll()
+
+        </script>
+        <!-- <div class="" id = "myDiv">
+
+        </div> -->
+
+        <script type="text/javascript">
+            var demo00 = function() {
+                var div = document.getElementById("myDiv")
+                alert(div.tagName)
+                alert(div.tagName == div.nodeName)
+                // if (element.tagName.toLowerCase() == "div") {
+                //
+                // }
+            }
+            // demo00()
+
+
+        </script>
+
+        <!-- <div  id = "myDiv" class="bd" title = "Body text" lang = "en" dir = "ltr">
+            example
+        </div>
+        <script type="text/javascript">
+            var demo01 = function() {
+                var div = document.getElementById("myDiv")
+                alert(div.id)
+                alert(div.className)
+                alert(div.title)
+                alert(div.lang)
+                alert(div.dir)
+            }
+            // demo01()
+        </script> -->
+        <div class=""  id = "myDiv" my_special_attribute = "hello!">
+            1234 example
+        </div>
+        <script type="text/javascript">
+            var demo03 = function() {
+                var d = document
+                var div = d.getElementById("myDiv")
+                var value = div.getAttribute("my_special_attribute")
+                console.log(value)
+
+                div.setAttribute("id", "someOtherId")
+                div.setAttribute("class", "ft")
+                div.setAttribute("title", "Some other text")
+                div.setAttribute("lang", "fr")
+                div.setAttribute("dir", "rlt")
+
+            }
+            // demo03()
+        </script>
+    </body>
+</html>

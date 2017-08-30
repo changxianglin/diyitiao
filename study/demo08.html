@@ -7,7 +7,7 @@
         <title>demo 扩展</title>
     </head>
     <body>
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             var body = document.querySelector("body")
 
             var myDiv = document.querySelector("#myDiv")
@@ -16,11 +16,100 @@
 
             var img = document.body.querySelector("img.button")
 
-            var ems = document.getElementById("myDiv").querySelectorAll("em")
+            // var ems = document.getElementById("myDiv").querySelectorAll("em")
 
             var selecteds = document.querySelectorAll(".selected")
 
             var strongs = document.querySelectorAll("p strong")
+
+            var i, len, strong
+            for (i = 0, len = strongs.length; i < len; i++) ,{
+                strong = strongs[i]
+                strong.className = "important"
+            }
+
+            if (document.body.mathchesSelector("body.page1")) {
+
+            }
+
+            var allCurrentUsernames = document.getElementsByClassName("username current")
+
+            var selected = document.getElementById("myDiv").getElementsByClassName("selected")
+
+
+        </script> -->
+        <div class="bd user disabled">
+            ...
+        </div>
+        <script type="text/javascript">
+            var div = document.querySelector("div")
+            var classNames = div.className.split(/\s+/)
+
+            var pos = -1
+            var i
+            var len
+            for (var i = 0, len = classNames.length; i < len; i++) {
+                if (classNames[i] == "user") {
+                    pos = i
+                    break
+                }
+            }
+            classNames.splice(i, 1)
+
+            div.className = classNames.join(" ")
+        </script>
+        <script type="text/javascript">
+            var div = document.querySelector("div")
+
+            div.classList.remove("user")
+
+            div.classList.add("current")
+
+            div.classList.toggle("user")
+            if (div.classList.contains("bd") && !div.classList.contains("disabled")) {
+
+            }
+
+            for (var i = 0, len = div.classList.length; i < len; i++) {
+                // doSomthing(div.classList[i])
+            }
+        </script>
+        <button type="button" name="button"></button>
+        <button type="button" name="button" id = "myButton"></button>
+        <script type="text/javascript">
+            var button = document.getElementById("myButton")
+            button.focus()
+            // alert(document.activeElement === button)
+
+            if (document.readyState == "complete") {
+                log("123")
+                alert("ok")
+            }
+
+            var head = document.head || document.getElementsByTagName("head")[0]
+
+            console.log(head.firstChild)
+            console.log(head.lastChild)
+
+            console.log(document.charset)
+            document.charset = "UTF-8"
+
+            if (document.charset != document.defaultCharset) {
+                // alert("Custom charaset set being used.")
+            }
+        </script>
+        <div class="" id = "myDiv" data-appId = "12345" data-myname="Nicholas">
+            \\\
+        </div>
+        <script type="text/javascript">
+            var div = document.getElementById("myDiv")
+
+            var ippId = div.dataset.appId
+            var myName = div.dataset.myname
+
+            if (div.dataset.myname) {
+                alert("Hello, " + div.dataset.myname)
+            }
         </script>
     </body>
 </html>

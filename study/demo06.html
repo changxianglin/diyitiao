@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo dom for css javascript">
+        <title>dom css</title>
+    </head>
+    <body>
+        <!-- <script type="text/javascript">
+            var link = document.createElement("link")
+            link.rel = "stylesheet"
+            link.type = "text/css"
+            link.href = "style.css"
+            var head = document.getElementsByTagName("head")[0]
+            head.appendChild(link)
+        </script> -->
+        <script type="text/javascript">
+            function loadStyle(url) {
+                var link = document.createElement("link")
+                link.rel = "stylesheet"
+                link.type = "text/css"
+                link.href = "url"
+                var head = document.getElementsTagName("head")[0]
+                head.appendChild(link)
+            }
+            // loadStyle("styles.css")
+        </script>
+    </body>
+</html>

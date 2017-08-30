@@ -122,4 +122,4 @@ var demo05 = function() {
     alert(element.getAttributeNode("align").value)
     alert(element.getAttribute("align"))
 }
-demo05()
+// demo05()

@@ -4,5 +4,73 @@
 </head>
 <body>
     hello world!
+    <div class="" id = "myDiv">
+        myDiv
+    </div>
+    <div class="" id = "myDiv1" style="background-color: blue; width: 10px; height:25px">
+
+    </div>
+    <script type="text/javascript">
+        var log = function() {
+            return console.log.apply(console, arguments)
+        }
+        // var newnode = document.inportNode(oldNode, true)
+        // document.body.appendChild(newNode)
+
+        var div1 = document.createElement("div")
+        div1.setAttribute("class", "box")
+
+        var div2 = document.createElement("div")
+        div2.setAttribute("class", "box")
+
+        log(div1.isSameNode(div1))
+        // log(div1.inEqualNode(div2))
+        log(div1.isSameNode(div2))
+
+        // document.body.setUserData("name", "Nicholas", function() {})
+
+        var supportsDOM2CSS1 = document.implementation.hasFeature("CSS", "2.0")
+        log(supportsDOM2CSS1)
+        var supportsDOM2CSS = document.implementation.hasFeature("css2", "2.0")
+        log(supportsDOM2CSS)
+
+        var myDiv = document.getElementById("myDiv")
+        myDiv.style.backgroundColor = "red"
+
+        myDiv.style.width = "100px"
+        myDiv.style.height = "200px"
+        myDiv.style.border = "1px solid black"
+
+        var div1 = document.getElementById("myDiv1")
+        log(div1.style.backgroundColor)
+        log(div1.style.width)
+        log(div1.style.height)
+
+        myDiv.style.cssText = "width: 25px; height: 100px; background-color: green; border: 5px;"
+        log(myDiv.style.cssText)
+        myDiv.style.removeProperty("border")
+        
+        log(myDiv.style.length)
+        for (var i = 0, len = myDiv.style.length; i < len; i++) {
+            log(myDiv.style[i])
+        }
+
+        var prop , value, i, len
+        for (i = 0, len = myDiv.style.length; i < len; i++) {
+            prop = myDiv.style[i]
+            value = myDiv.style.getPropertyValue(prop)
+            log("123", prop + " : " + value )
+        }
+
+        // var prop, value, i, len
+        // for (i = 0, len = myDiv.style.length; i < len; i++) {
+        //     prop = myDiv.style[i]
+        //     value = myDiv.style.getPropertyCSSValue(prop)
+        //     log(prop + " : " + value.cssText + "("  + value.cssValueType +  ")")
+        // }
+
+
+
+    </script>
 </body>
 </html>

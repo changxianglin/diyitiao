@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="dom for getComputedStyle">
+        <title>document.defaultView</title>
+        <style media="screen">
+            #myDiv {
+                background-color: blue;
+                width: 100px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="" id = "myDiv" style="background-color: red; border: 1px solid black">
+
+        </div>
+        <!-- <iframe height=498 width=510 src='http://player.youku.com/embed/XMzAwMDMzMjI4MA==' frameborder=0 allowfullscreen></iframe> -->
+        <script type="text/javascript">
+            var log = function() {
+                return console.log.apply(console, arguments)
+            }
+
+            var myDid = document.getElementById("myDiv")
+            var computedStyle = document.defaultView.getComputedStyle(myDiv, null)
+
+            log(computedStyle.backgroundColor)
+            log(computedStyle.width)
+            log(computedStyle.height)
+            log(computedStyle.border)
+
+            var supportsDOM2StyleSheets = document.implementation.hasFeature("sytleSheets", "2.0")
+            log(supportsDOM2StyleSheets)
+
+            var sheet = null
+            for (i = 0, len = document.styleSheets.length; i < len; i++) {
+                sheet = document.styleSheets[i]
+                log(sheet.href)
+            }
+
+            // function getStyleSheet(element) {
+            //     return element.sheet || element.styleSheets
+            // }
+            //
+            // var link = document.getElementsByTagName("link")[0]
+            // var sheet = getStyleSheet(link)
+
+            // div.box {
+            //     background-color: blue;
+            //     width: 100px;
+            //     height: 200px;
+            // }
+
+            var sheet = document.styleSheets[0]
+            var rules = sheet.cssRules || sheet.rules
+            var rule = rules[0]
+            log("#")
+            log(rule.selectorText)
+            log(rule.style.cssText)
+            log(rule.style.backgroundColor)
+            log(rule.style.width)
+            log(rule.style.height)
+
+            var sheet = document.styleSheets[0]
+            var rules = sheet.cssRules || sheet.rules
+            var rule = rules[0]
+            rule.style.backgroundColor = "red"
+
+            
+        </script>
+    </body>
+</html>

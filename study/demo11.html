@@ -68,7 +68,70 @@
             var rule = rules[0]
             rule.style.backgroundColor = "red"
 
-            
+            // sheet.addRule("body", "background-color: silver", 0)
+            sheet.insertRule("body { background-color: silver}", 0)
+
+            // sheet.deleteRule(0)
+            // sheet.removeRule(0)
+            var sheet = myDid
+            log(sheet.offsetLeft)
+            log(sheet.offsetTop)
+            log(sheet.offsetHeight)
+            log(sheet.offsetWidth)
+
+            log(sheet.clientWidth)
+            log(sheet.clientHeight)
+
+            var docHeight = Math.max(document.documentElement.scrollHeight, document.documentElement.scrollHeight)
+
+            var docWidth = Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth)
+
+            function scrollToTop(element) {
+                if (element.scrollTop != 0) {
+                    element.scrollTop = 0
+                }
+            }
+
+            function getBoundingClientRect(element) {
+
+                var scrollTop = document.documentElement.scrollTop
+                var scrollLeft = document.documentElement.scrollLeft
+
+                if (element.getoundingClientRect) {
+                    if (typeof arguments.callee.offset != "number") {
+                        var temp = document.createElement("div")
+                        temp.style.cssText = "position:absolute; left: 0; top : 0;"
+                        document.body.appendChild(temp)
+                        arguments.callee.offset = -temp.getBoundingClientRect().top - scrllTop
+                        document.body.removeChild(temp)
+                        temp = null
+                    }
+
+                    var rect  = element.getBoundingClientRect()
+                    var offset = arguments.callee.offset
+
+                    return {
+                        left: rect.left + offset,
+                        right: rect.right + offset,
+                        top: rect.top + offset,
+                        bootom: rect.bottom + offset
+                    }
+                } else {
+                    var actuLeft = getElementLeft(element)
+                    var actulTop = getElementTop(element)
+
+                    return {
+                        left: actuLeft - scrollLeft,
+                        right: actuLeft - element.offsetWidth - scrollLeft,
+                        top: actulTop - scrollTop,
+                        bottom: actulTop + element.offsetHeight - srcllTop
+                    }
+                }
+            }
+
+            var supportsTraversals = document.implementation.hasFeature("Traversal", "2.0")
+            var supportsNodeIterator = (typeof document.createNodeIterator == "function")
+            var supportTreeWalker = (typeof document.createTreeWalker == "function")
         </script>
     </body>
 </html>

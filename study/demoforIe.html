@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for only IE">
+        <title>demo for IE</title>
+    </head>
+    <body>
+        <p id = "p1"><b>Hello</b> world!</p>
+        <script type="text/javascript">
+                var log = function() {
+                    return console.log.apply(console, arguments)
+                }
+                log("IE")
+                // var range = document.body.createTextRange()
+
+                var range = document.body.createTextRange()
+                var found = range.findText("Hello")
+                // alert(found)
+                // alert(range.text)
+                log("found", found)
+                log("range.text", range.text)
+
+
+                var found = range.findText("Hello")
+                var foundAgain = range.findText("Hello", 1)
+                log("found", found)
+                log("range.text", range.text)
+
+                // var range = document.body.createTextRange()
+                // var p1 = document.getElementById("p1")
+                // range.moveToElementText(p1)
+
+                // alert(range.html)
+
+                
+        </script>
+    </body>
+</html>

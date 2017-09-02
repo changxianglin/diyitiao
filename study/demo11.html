@@ -132,6 +132,13 @@
             var supportsTraversals = document.implementation.hasFeature("Traversal", "2.0")
             var supportsNodeIterator = (typeof document.createNodeIterator == "function")
             var supportTreeWalker = (typeof document.createTreeWalker == "function")
+
+            var supportsRangs = document.implementation.hasFeature("Range", "2.0")
+            log("supports", supportsRangs)
+            var alsoSupportsRange = (typeof document.createRange == "function")
+            log("alsoSupports", alsoSupportsRange)
+
+            
         </script>
     </body>
 </html>

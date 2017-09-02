@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo12 for dom createRange">
+        <title>demo for createRange</title>
+    </head>
+    <body>
+        <p id = "p1"><b>Hello</b> world!</p>
+
+
+        <p id = "p2">Paragraph 2</p><p id = "p3">Paragraph 3</p>
+        <script type="text/javascript">
+            var log = function() {
+                return console.log.apply(console, arguments)
+            }
+            var range1 = document.createRange()
+            var range2 = document.createRange()
+            var p1 = document.getElementById("p1")
+            var range1selector = range1.selectNode(p1)
+            var range2selector = range2.selectNodeContents(p1)
+            log("range1selector", range1selector)
+            log("range2selector", range2selector)
+
+
+            var range1 = document.createRange()
+            var range2 = document.createRange()
+            var p1 = document.getElementById("p1")
+            var p1Index = 1
+            var i
+            var len
+
+            for (i = 0, len = p1.parentNode.childNodes.length; i < len; i++) {
+                if (p1.parentNode.childNodes[i] == p1) {
+                    p1Index = i
+                    break
+                }
+            }
+
+            range1.setStart(p1.parentNode, p1Index)
+            range2.setEnd(p1.parentNode, p1Index + 1)
+            range2.setStart(p1, 0)
+            range2.setEnd(p1, p1.childNodes.length)
+
+            var p1 = document.getElementById("p1")
+            var helloNode = p1.firstChild.firstChild
+            var worldNode = p1.lastChild
+            log("helloNode", helloNode)
+            log("worldNode", worldNode)
+
+            var range = document.createRange()
+            range.setStart(helloNode, 2)
+            range.setEnd(worldNode, 3)
+
+
+            var p1 = document.getElementById("p1")
+            var helloNode = p1.firstChild.firstChild
+            var worldNode = p1.lastChild
+            var range = document.createRange()
+            range.setStart(helloNode, 2)
+            range.setEnd(worldNode, 3)
+
+            range.deleteContents()
+
+            var test = document.getElementById("p1")
+            log("test", test)
+            var show = test.innerHTML
+            log("show", typeof show)
+
+            // var p1 = document.getElementById("p1")
+            // var helloNode = p1.firstChild.firstChild
+            // var worldNode = p1.lastChild
+            // var range = document.createRange()
+            //
+            // range.setStart(helloNode, 2)
+            // range.setEnd(worldNode, 3)
+            //
+            // var fragment = range.extractContents()
+            // p1.parentNode.appendChild(fragment)
+
+
+            var p1 = document.getElementById("p1")
+            var helloNode = p1.firstChild.firstChild
+            var world = p1.lastChild
+            var range = document.createRange()
+
+            range.setStart(helloNode, 2)
+            range.setEnd(worldNode, 3)
+
+            var fragment = range.cloneContents()
+            p1.parentNode.appendChild(fragment)
+            //
+            // var p1 = document.getElementById("p1")
+            // var helloNode = p1.firstChild.firstChild
+            // var worldNode = p1.lastChild
+            // var range = document.createRange()
+            //
+            // range.setStart(helloNode, 2)
+            // range.setEnd(worldNode, 3)
+            //
+            // var span = document.createElement("span")
+            // span.style.color = "red"
+            // span.appendChild(document.createTextNode("Inserted text"))
+            // range.insertNode(span)
+
+            var p1 = document.getElementById("p1")
+            var helloNode = p1.firstChild.firstChild
+            var worldNode = p1.lastChild
+            var range = document.createRange()
+
+            range.selectNode(helloNode)
+
+            var span = document.createElement("span")
+            span.style.color = "red"
+            // range.surroundContents(span)
+            span.style.backgroundColor = "yellow"
+            range.surroundContents(span)
+
+            range.collapse(true)
+            // alert(range.collapsed)
+
+
+            var p2 = document.getElementById("p2")
+            var p3 = document.getElementById("p3")
+            var range = document.createRange()
+
+            range.setStartAfter(p2)
+            range.setEndBefore(p3)
+            alert(range.collpased)
+        </script>
+    </body>
+</html>

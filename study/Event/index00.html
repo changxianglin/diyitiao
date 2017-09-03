@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for event">
+        <title>Event dom for DOM0</title>
+    </head>
+    <body>
+        <input type="button" name="" value="" id = "mybtn">
+        <script type="text/javascript">
+            // var btn = document.getElementById("mybtn")
+            // btn.onclick = function() {
+            //     alert("Clicked")
+            // }
+
+            // var btn = document.getElementById("mybtn")
+            // btn.onclick = function() {
+            //     alert(this.id)
+            // }
+
+            // var btn = document.getElementById("mybtn")
+            // btn.onclick = null
+
+            // var btn = document.getElementById("mybtn")
+            // btn.addEventListener("click", function() {
+            //     alert("Hello world!")
+            // }, false)
+
+            // var btn = document.getElementById("mybtn")
+            // btn.addEventListener("click", function() {
+            //     alert(this.id)
+            // }, false)
+            //
+            // btn.addEventListener("click", function() {
+            //     alert("hello world!")
+            // }, false)
+
+            // var btn = document.getElementById("mybtn")
+            // btn.addEventListener("click", function() {
+            //     alert(this.id)
+            // }, false)
+            //
+            // btn.removeEventListener("click", function() {
+            //     alert(this.id)
+            // }, false)
+
+            var btn = document.querySelector("#mybtn")
+            var handler = function() {
+                alert(this.id)
+            }
+            btn.addEventListener("click", handler, false)
+
+            btn.removeEventListener("click", handler, false)
+
+            // var btn = document.getElementById("mybtn")
+            //
+            // btn.onclick = function(event) {
+            //     alert(event.type)
+            // }
+            // btn.addEventListener("click", function(event) {
+            //     alert(event.type)
+            // }, false)
+        </script>
+
+        <!-- <script type="text/javascript">
+            // IE 特效
+            console.log("in Ie")
+            var btn = document.getElementById("mybtn")
+            console.log("IE btn", btn)
+            btn.addEventListener("click", function() {
+                alert("Clicked")
+            })
+        </script> -->
+        <input type="button" name="" value="Click Me" onclick="alert(event.type)">
+        <!-- <script type="text/javascript">
+            var btn = document.getElementById("mybtn")
+            btn.onclick = function(event) {
+                alert(event.currentTarget === this)
+                alert(event.target === this)
+            }
+        </script> -->
+        <!-- <script type="text/javascript">
+            document.body.onclick = function(event) {
+                alert(event.currentTarget === document.body)
+                alert(this === document.body)
+                alert(event.target === document.getElementById("mybtn"))
+            }
+        </script> -->
+        <!-- <script type="text/javascript">
+            var btn = document.getElementById("mybtn")
+            var handler = function(event) {
+                switch(event.type){
+                    case "click":
+                        alert("Clicked")
+                        break
+
+                    case "mouseover":
+                        event.target.style.backgroundColor = "red"
+                        break
+
+                    case "mouseout":
+                        event.target.style.backgroundColor = ""
+                        break
+
+                }
+            }
+            btn.onclick = handler
+            btn.onmouseover = handler
+            btn.onmouseout = handler
+        </script> -->
+        <p><a  id = "myLink" href="http://www.baidu.com">her</a></p>
+        <script type="text/javascript">
+            var link = document.getElementById("myLink")
+            link.onclick = function(event) {
+                event.preventDefault()
+            }
+        </script>
+        <!-- <script type="text/javascript">
+            var btn = document.getElementById("mybtn")
+            btn.onclick = function(event) {
+                alert("Clicked")
+                event.stopPropagation()
+            }
+            document.body.onclick = function() {
+                alert("Body clicked")
+            }
+        </script> -->
+
+        <script type="text/javascript">
+            var btn = document.getElementById("mybtn")
+            btn.onclick = function(event) {
+                console.log("event 1", event.eventPhase)
+                alert(event.eventPhase)
+            }
+            document.body.addEventListener("click", function(event) {
+                console.log("event 2", event.eventPhase)
+                alert(event.eventPhase)
+            })
+            document.body.onclick = function(event) {
+                console.log("event 3", event.eventPhase)
+                alert(event.eventPhase)
+            }
+        </script>
+    </body>
+</html>

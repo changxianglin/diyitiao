@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo fro event bubbling">
+        <title>demo for event bubbling Example</title>
+    </head>
+    <body>
+        <div class="" id = "myDiv">
+            Click Me
+        </div>
+        <input type="button" name="" value="Click Me" onclick = "alert('Click Me')">
+        <hr>
+        <input type="button" name="" value="Click Me" onclick = "alert(&quot; Clicked&quot;)">
+        <hr>
+        <script type="text/javascript">
+            function showMeddage() {
+                alert("Hello World!")
+            }
+        </script>
+        <input type="button" name="" value="Click Me" onclick="showMeddage()">
+        <hr>
+        <input type="button" name="" value="Click Me" onclick="alert(event.type)">
+        <hr>
+        <input type="button" name="" value="Click Me"  onclick="alert(this.value)">
+        <hr>
+        <script type="text/javascript">
+            function() {
+                with(document) {
+                    with(this)
+                }
+            }
+        </script>
+        <input type="button" name="" value="Click Me" onclick="alert(value)">
+        <hr>
+        <script type="text/javascript">
+            function() {
+                with(document) {
+                    with(this.form) {
+                        with(this)
+                    }
+                }
+            }
+        </script>
+        <form  method="post">
+            <input type="text" name="username" value="">
+            <input type="button" name=""  value = "Echo Uername" onclick="alert(username.value)">
+        </form>
+        <hr>
+        <input type="button" name="" value="Click Me" onclick="try{showMeddage;} catch(ex){}">
+    </body>
+</html>

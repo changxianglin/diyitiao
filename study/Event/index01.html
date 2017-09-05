@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for ie event">
+        <title>demo IE Event</title>
+    </head>
+    <body>
+        <div class="" id = "mybtn">
+            1234
+        </div>
+        <script type="text/javascript">
+            var btn  = document.getElementById("mybtn")
+            // btn.onclick = function() {
+            //     var event = window.event
+            //     alert(event.type)
+            // }
+
+            // btn.addEventListener("click", function(event) {
+            //     alert(event.type)
+            // })
+
+            btn.onclick = function() {
+                console.log("ri")
+                alert(window.event.srcElement === this)
+            }
+            btn.addEventListener("click", function() {
+                alert(event.srcElement === this)
+            })
+        </script>
+    </body>
+</html>

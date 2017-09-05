@@ -34,5 +34,134 @@
     <body>
         <div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
         <button type="button" onclick="loadXMLDoc()">修改内容</button>
+        <script type="text/javascript">
+        // ES 6 的 面向对象封装
+        class TodoApi {
+            constructor() {
+                this.baseUrl = 'https://vip.cocode.cc/sandbox/todo/3400711034'
+            }
+
+            get(path, callback) {
+                var url = this.baseUrl + path
+                ajax('GET', url, '', function(r){
+                    callback(r)
+                })
+            }
+
+            post(path, data, callback) {
+                var url = this.baseUrl + path
+                data = JSON.stringify(data)
+                ajax('POST', url, data, function(r){
+                    callback(r)
+                })
+            }
+
+            all(callback) {
+                var path = '/all'
+                this.get(path, function(r){
+                    var todos = JSON.parse(r.response)
+                    callback(todos)
+                })
+            }
+
+            add(task, callback) {
+                // 发送 ajax 来创建 todo
+                var path = '/add'
+                var data = {
+                    'task': task,
+                }
+                this.post(path, data, function(r){
+                    var t = JSON.parse(r.response)
+                    console.log(t)
+                    callback(t)
+                })
+            }
+
+            delete(todo_id, callback) {
+                var path = '/delete/' + todo_id
+                // 发送 ajax 请求来删除 todo
+                this.get(path, function(r){
+                    var t = JSON.parse(r.response)
+                    callback(t)
+                })
+            }
+
+            update(todo_id, task, callback) {
+                // 发送 ajax
+                var path = '/update/' + todo_id
+                var data = {
+                    'task': task,
+                }
+                this.post(path, data, function(r){
+                    var t = JSON.parse(r.response)
+                    console.log('更新成功', t)
+                    callback(t)
+                })
+            }
+        }
+
+        // ES5 的 面向对象封装, 作为对比参考
+        var TodoApi = function() {
+            this.baseUrl = 'https://vip.cocode.cc/sandbox/todo/3400711034'
+        }
+
+        TodoApi.prototype.get = function(path, callback) {
+            var url = this.baseUrl + path
+            ajax('GET', url, '', function(r){
+                callback(r)
+            })
+        }
+
+        TodoApi.prototype.post = function(path, data, callback) {
+            var url = this.baseUrl + path
+            data = JSON.stringify(data)
+            ajax('POST', url, data, function(r){
+                callback(r)
+            })
+        }
+
+        TodoApi.prototype.all = function(callback) {
+            var path = '/all'
+            this.get(path, function(r){
+                var todos = JSON.parse(r.response)
+                callback(todos)
+            })
+        }
+
+        TodoApi.prototype.add = function(task, callback) {
+            // 发送 ajax 来创建 todo
+            var path = '/add'
+            var data = {
+                'task': task,
+            }
+            this.post(path, data, function(r){
+                var t = JSON.parse(r.response)
+                console.log(t)
+                callback(t)
+            })
+        }
+
+        TodoApi.prototype.delete = function(todo_id, callback) {
+            var path = '/delete/' + todo_id
+            // 发送 ajax 请求来删除 todo
+            this.get(path, function(r){
+                var t = JSON.parse(r.response)
+                callback(t)
+            })
+        }
+
+        TodoApi.prototype.update = function(todo_id, task, callback) {
+            // 发送 ajax
+            var path = '/update/' + todo_id
+            var data = {
+                'task': task,
+            }
+            this.post(path, data, function(r){
+                var t = JSON.parse(r.response)
+                console.log('更新成功', t)
+                callback(t)
+            })
+        }
+        </script>
     </body>
 </html>

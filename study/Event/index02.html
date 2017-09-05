@@ -6,13 +6,38 @@
         <meta name="description" content="demo for event type">
         <title>demo 事件类型</title>
     </head>
-    <body>
+    <body onload="alert('Loaded!')">
         <div class="" id = "mybtn">
             1234567
         </div>
+        <input id = "showInt" type="text" name="" value="">
+        <input type="text" name="" value="">
+        <!-- <img src="simle.gif" alt="" onload="alert('Image loaded.')"> -->
         <script type="text/javascript">
-            var isSupported = document.implementation.hasFeature("HTMLEvent", 2.0)
+            var isSupported = document.implementation.hasFeature("HTMLEvent", "2.0")
             console.log("yeap", isSupported)
+
+            var isSupported = document.implementation.hasFeature("UIEvent", "3.0")
+            console.log("yeap3", isSupported)
+
+
+            // EventUtil.addHandler(window, "load", function(event) {
+            //     alert("Loaded!")
+            // })
+            // var image = document.getElementById("myImage")
+            // EventUtil.addEventListener(image, "load", function() {
+            //     event = EventUtil.getEvent(event)
+            //     alert(EventUtil.getTarget(event).src)
+            // })
+
+            // EventUtil.addHandler(window, "resize", function(event) {
+            //     alert("resized")
+            // })
+            var a = function() {
+                console.log("focus")
+                var i = document.getElementById("showInt").focus()
+            }
+            a()
         </script>
     </body>
 </html>

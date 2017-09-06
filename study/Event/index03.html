@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for event mouse">
+        <title>demo 鼠标事件与滚轮事件</title>
+    </head>
+    <body>
+        <p>
+            # mousedown
+            # mouseup
+            # click
+            # mousedown
+            # mouseup
+            # click
+            # dbclick
+        </p>
+        <script type="text/javascript">
+            var isSupported = document.implementation.hasFeature("MouseEvents", "3.0")
+            console.log("isSupported", isSupported)
+            var Supported = document.implementation.hasFeature("MouseEvent", "3.0")
+            console.log("Supported", Supported)
+        </script>
+    </body>
+</html>

@@ -16,11 +16,31 @@
             # click
             # dbclick
         </p>
+        <div class="" id = "myDiv">
+            2345
+        </div>
+        <input type="text" name=""  class="show" value="">
         <script type="text/javascript">
             var isSupported = document.implementation.hasFeature("MouseEvents", "3.0")
             console.log("isSupported", isSupported)
             var Supported = document.implementation.hasFeature("MouseEvent", "3.0")
             console.log("Supported", Supported)
+
+            var div = document.getElementById("myDiv")
+            div.addEventListener("click", function(event) {
+                alert("Client coordinates:" + event.clientX + "," + event.clientY)
+            })
+
+
+                var btn = document.querySelector(".show")
+                btn.addEventListener("keydown", function(event) {
+                    console.log(event.keyCode)
+                })
+
+                var btn = document.querySelector("body")
+                btn.addEventListener("DOMMouseScroll", function(event) {
+                    alert(event.detail)
+                })
         </script>
     </body>
 </html>

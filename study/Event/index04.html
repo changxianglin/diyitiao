@@ -7,6 +7,12 @@
         <title>demo 键盘与文本事件</title>
     </head>
     <body>
-
+        <input type="text" name="" value="" id = "myText">
+        <script type="text/javascript">
+            var text = document.getElementById("myText")
+            text.addEventListener("textInput", function() {
+                console.log(event.data)
+            })
+        </script>
     </body>
 </html>

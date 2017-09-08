@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for ifrema">
+        <title>dmo ifrema</title>
+        <style media="screen">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+            .left {
+                float: left;
+                width: 100px;
+                height: 200px;
+                background-color: gray;
+            }
+            .right {
+                float: right;
+                width: 900px;
+                height: 1080px;
+                background-color: yellow;
+            }
+            .right iframe {
+                width: 500px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="left">
+            <!-- 记得 a 与 ifream 关联的主要因素是 a 的 target 的值要与 ifream 的 name 值一致 -->
+            <ul>
+                <li><a href="http://www.baidu.com/" target="1">1</a></li>
+                <li><a href="http://www.baidu.com/" target="2">2</a></li>
+                <li><a href="http://www.baidu.com/" target="3">3</a></li>
+                <li><a href="http://www.baidu.com/" target="4">4</a></li>
+                <li><a href="http://www.baidu.com/" target="5">5</a></li>
+                <li><a href="http://www.baidu.com/" target="6">6</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="">
+                <iframe src="" name= "1" width="" height=""></iframe>
+            </div>
+            <div class="">
+                <iframe src="" id = "2" name= "2" width="" height=""></iframe>
+            </div>
+            <div class="">
+                <iframe src="" name = "3" width="" height=""></iframe>
+            </div>
+            <div class="">
+                <iframe src="" name = "4" width="" height=""></iframe>
+            </div>
+            <div class="">
+                <iframe src="" name = "5" width="" height=""></iframe>
+            </div>
+            <div class="">
+                <iframe src="" name = "6" width="" height=""></iframe>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for form submit">
+        <title>form</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    </head>
+    <body>
+        <form class=""  method="post">
+            <div class="int">
+                <label for="username">用户名：</label>
+                <input type="text" id = "username" class = "required" name="" value="">
+            </div>
+            <div class="int">
+                <label for="email">邮箱：</label>
+                <input type="text" id = "email" class = "required" name="" value="">
+            </div>
+            <div class="int">
+                <label for="personinfo">个人资料：</label>
+                <input type="text" id = "personinfo" name="" value="">
+            </div>
+            <div class="sub">
+                <input type="submit" name="" value="提交" id = "send">
+                <input type="reset" name="" value="重置" id = "res">
+            </div>
+        </form>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("form :input.required").each(function() {
+                    var $required = $("<strong class = 'hight'> *</strong>")
+                    console.log("input")
+                    $(this).parent().append($required)
+                })
+            })
+        </script>
+    </body>
+</html>

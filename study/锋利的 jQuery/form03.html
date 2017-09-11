@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for other use">
+        <title>demo</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+        <style media="screen">
+            span {
+                background: #FF0000;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="bigger">放大</span>
+                <span class="smaller">缩小</span>
+            </div>
+            <div class="">
+                <p id = "para">
+                    The yes command outputs the same string, STRING, in a constant stream. If STRING is not specified, the word it repeats is y. 🔁
+
+yes dates back to a time before Unix commands included the "force" (-f) option, which for many commands is the same as answering "yes" to all prompts.
+
+yes can be used to do something very similar: if the output of yes is piped to a command, it will effectively answer "yes" to any confirmation prompts.
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                $("span").click(function() {
+                    var thisEle = $("#para").css("font-size")
+                    var textFontSize = parseInt(thisEle, 10)
+                    var unit = thisEle.slice(-2)
+                    var cName = $(this).attr("class")
+                    if (cName == "bigger") {
+                        if (textFontSize <= 22) {
+                            textFontSize += 2
+                        }
+                    } else if (cName == "smaller") {
+                        if (textFontSize >= 12) {
+                            textFontSize -= 2
+                        }
+                    }
+                    $("#para").css("font-size", textFontSize + unit)
+                })
+            })
+        </script>
+    </body>
+</html>

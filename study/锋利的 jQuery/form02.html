@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for table">
+        <title>demo for table</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+        <style media="screen">
+            .even {
+                background: #FFF38F;
+            }
+            .odd {
+                background: #FFFFEE;
+            }
+            .selected {
+                background: #FF0000;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th><th>性别</th><th>暂住地</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张珊</td><td>男</td><td>浙江宁波</td>
+                </tr>
+                <tr>
+                    <td>李四</td><td>男</td><td>浙江宁波</td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            $(function() {
+                $("tbody>tr:odd").addClass("add")
+                $("tbody>tr:even").addClass("even")
+            })
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("tr:contains('李四')").addClass("selected")
+            })
+        </script>
+    </body>
+</html>

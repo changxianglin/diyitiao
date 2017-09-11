@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for 换肤">
+        <title>demo for 换肤</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+        <style media="screen">
+            ul li {
+                display: inline-block;
+                list-style: none;
+                background: #FFFF00;
+            }
+            div {
+                display: inline-block;
+                background: #00FFFF;
+            }
+            .selected {
+                background: #FF00F0;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id = "skin">
+            <li id = "skin_0" title="灰色" class="selected">灰色</li>
+            <li id = "skin_1" title="紫色">紫色</li>
+            <li id = "skin_2" title="红色">红色</li>
+            <li id = "skin_3" title="天蓝色">天蓝色</li>
+            <li id = "skin_4" title="橙色">橙色</li>
+            <li id = "skin_5" title="淡绿色">淡绿色</li>
+        </ul>
+        <div class="" id = "div_side_0">
+            <div class="" id = "news">
+                <h1 class="title">实事新闻</h1>
+            </div>
+        </div>
+        <div class="" id = "div_side_1">
+            <div class="" id = "game">
+                <h1 class="title">娱乐新闻</h1>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var $li = $("#skin li")
+            $li.click(function() {
+                $("#" + this.id).addClass("selected")
+                .siblings().removeClass("selected")
+                $("#cssfile").attr("href", "css/" + this.id + ".css")
+            })
+        </script>
+    </body>
+</html>

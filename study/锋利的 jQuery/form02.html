@@ -19,6 +19,7 @@
         </style>
     </head>
     <body>
+        <input type="text" name="" value="" id = "filterName">
         <table>
             <thead>
                 <tr>
@@ -26,10 +27,31 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="parent" id = "row_01">
+                    <td colspan="3">前台设计</td>
+                </tr>
+                <tr class="child_row_01">
                     <td>张珊</td><td>男</td><td>浙江宁波</td>
                 </tr>
-                <tr>
+                <tr class="child_row_01">
+                    <td>李四</td><td>男</td><td>浙江宁波</td>
+                </tr>
+                <tr class="parent" id = "row_02">
+                    <td colspan="3">前台开发</td>
+                </tr>
+                <tr class="child_row_02">
+                    <td>张珊</td><td>男</td><td>浙江宁波</td>
+                </tr>
+                <tr class="child_row_02">
+                    <td>李四</td><td>男</td><td>浙江宁波</td>
+                </tr>
+                <tr class="parent" id = "row_02">
+                    <td colspan="3">后台开发</td>
+                </tr>
+                <tr class="child_row_03">
+                    <td>张珊</td><td>男</td><td>浙江宁波</td>
+                </tr>
+                <tr class="child_row_03">
                     <td>李四</td><td>男</td><td>浙江宁波</td>
                 </tr>
             </tbody>
@@ -44,6 +66,27 @@
             $(function() {
                 $("tr:contains('李四')").addClass("selected")
             })
+        </script>
+        <script type="text/javascript">
+                $('tr.parent').click(function() {
+                    $(this)
+                    .toggleClass("selected")
+                    .siblings('.child_' + this.id).toggle()
+                }).click()
+        </script>
+        <!-- <script type="text/javascript">
+            $(function() {
+                $("table tbody tr").hide()
+                 .filter(":contains('李')").show()
+            })
+        </script> -->
+        <script type="text/javascript">
+        $(function() {
+            $("#filterName").keyup(function() {
+                $("table tbody tr").hide()
+                .filter(":contains('"+ ( $(this).val() ) + "')").show()
+            }).keyup()
+        })
         </script>
     </body>
 </html>

@@ -5,8 +5,66 @@
         <meta name="author" content="Zhang Xianglin">
         <meta name="description" content="demo for 网页选项卡">
         <title>网页选项卡</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+        <style media="screen">
+            ul li {
+                list-style: none;
+                display: inline-block;
+                background: #FF0000;
+                cursor: pointer;
+            }
+            .tab_box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid blue;
+            }
+            .hide {
+                display: none;
+            }
+            .selected {
+                background: #0000FF;
+            }
+        </style>
     </head>
     <body>
-
+        <div class="tab">
+            <div class="tab_menu">
+                <ul>
+                    <li class="selected">实事</li>
+                    <li>体育</li>
+                    <li>娱乐</li>
+                </ul>
+            </div>
+            <div class="tab_box">
+                <div class="">
+                    实事
+                </div>
+                <div class="hide">
+                    体育
+                </div>
+                <div class="hide">
+                    娱乐
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                var $div_li = $("div.tab_menu ul li")
+                $div_li.click(function() {
+                    console.log("click")
+                    $(this).addClass("selected")
+                    .siblings().removeClass("selected")
+                    var index = $div_li.index(this)
+                    $("div.tab_box>div")
+                    .eq(index).show()
+                    .siblings().hide()
+                }).hover(function() {
+                    console.log("hover                                                                                                                                                                                                          ")
+                    $(this).addClass("hover")
+                }, function() {
+                    $(this).removeClass("hover")
+                })
+            })
+        </script>
     </body>
 </html>

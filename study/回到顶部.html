@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for 回到顶部">
+        <title>回到顶部</title>
+        <style media="screen">
+            .yeap {
+                position: fixed;
+                bottom: 50px;
+                right: 20px;
+                background-color: red;
+            }
+            .yeap:hover {
+                cursor: pointer;
+            }
+            .box {
+                height: 1800px;
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <hr>
+        <footer  class="yeap">
+            回到顶部
+        </footer>
+        <div class="box">
+            1
+        </div>
+        <p>
+            这是底部啦
+        </p>
+        <script type="text/javascript">
+            var cli = function() {
+                // console.log("click")
+                var foo = document.querySelector(".yeap")
+                foo.addEventListener("click", function() {
+                    document.body.scrollTop = 0
+                })
+            }
+            var ans = function() {
+                // console.log("in")
+                var btn = document.body.scrollTop
+                var client = document.body.clientHeight
+                var dis = document.querySelector(".yeap")
+                var jus = client / 3
+                // console.log("show", btn, client, jus)
+                if (jus <= btn  ) {
+                    dis.style.display = "block"
+                    // console.log("show23")
+                    cli()
+                } else {
+                    dis.style.display = "none"
+                    // console.log("show45")
+                }
+            }
+
+            var setI = function() {
+                // 以下那些事件都会触发页面滚动事件
+                window.onscroll = function() {
+                    ans()
+                }
+                //  鼠标滚轮事件
+                // document.body.addEventListener("mousewheel", function(event) {
+                //     console.log(event.type)
+                //     ans()
+                // })
+                //  鼠标按下事件
+                // document.body.addEventListener("mousedown", function(event) {
+                //     console.log(event.type)
+                //     ans()
+                // })
+                //  鼠标按下拖动事件
+                // document.body.addEventListener("mousemove", function(event) {
+                //     console.log(event.type)
+                //     ans()
+                // })
+                //  键盘下键事件
+                // document.body.addEventListener("keydown", function(event) {
+                //     var t = event.keyCode
+                //     console.log(event.keyCode)
+                //     if (t == 40) {
+                //         ans()
+                //     }
+                // })
+            }
+            setI()
+            // setInterval(ans, 1000)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for ajax-get">
+        <title>demo for ajax-get</title>
+        <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    </head>
+    <body>
+        <p><input type="text" name="" value="提交" id = "send"></p>
+        <script type="text/javascript">
+            $("#send").click(function() {
+                $.get("http://localhost:3000", {
+                    name : "zhangxianglin",
+                    sex : "male",
+                }, function(data, textStatus) {
+                    console.log(data)
+                })
+            })
+        </script>
+    </body>
+</html>

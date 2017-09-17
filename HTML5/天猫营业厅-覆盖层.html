@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zhang Xianglin">
+        <meta name="description" content="demo for 天猫营业厅覆盖层">
+        <title>demo for 天猫营业厅</title>
+        <style media="screen">
+            html, body {
+                padding: 0;
+                margin: 0;
+            }
+            .main {
+                width: 100%;
+                height: 2000px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
+            .cover {
+                position: absolute;
+                width: 100%;
+                background-color: rgba(250,0,255, 0.5);
+                z-index: 10000;
+            }
+            .top {
+                width: 500px;
+                height: 200px;
+                margin: 0 auto;
+                position: fixed;
+                transform: translateX(100%) translateY(100%);
+                margin-left: -100px;
+                background-color: #FFFFFF;
+                z-index: 10010;
+            }
+        </style>
+        <script type="text/javascript">
+            var wd = function() {
+                var w = document.body.clientHeight
+                var f = document.querySelector(".cover")
+                f.style.height = w + "px"
+                console.log("yeap")
+
+            }
+             window.onload = function() {
+                 wd()
+             }
+        </script>
+    </head>
+    <body>
+        <div class="cover">
+            <div class="top">
+                <table>
+                    <tr>
+                        <td>充话费</td>
+                        <td>充流量</td>
+                        <td>充固话</td>
+                        <td>充宽带</td>
+                    </tr>
+                </table>
+                <hr>
+            </div>
+        </div>
+        <div class="main">
+            890 <br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+            890<br>
+        </div>
+    </body>
+</html>

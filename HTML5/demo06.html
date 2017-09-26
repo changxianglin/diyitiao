@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Zhang Xianglin">
+    <meta name="description" content="demo for Media Queries">
+    <title>demo for media Queries</title>
+    <style media="screen">
+    .spa {
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: width 2s ease 0.5s;
+      transition: background-color 2s ease 0.2s;
+      transition: height 2s ease 0.2s;
+    }
+    @media only screen and(max-widht: 960px) {
+      .spa{
+        background-color: orange;
+        width: 200px;
+        height: 200px;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="spa">
+
+    </div>
+  </body>
+</html>

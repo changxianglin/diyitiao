@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Zhang Xianglin">
+    <meta name="description" content="demo for animation">
+    <title>demo for animation</title>
+    <style media="screen">
+      .spa {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+
+
+
+      @keyframes myfirst  {
+      	0%   {
+          width: 200px;
+          height: 200px;
+          background:red;
+        }
+      	25%  {
+          width: 150px;
+          height: 150px;
+          background:yellow;
+        }
+      	50%  {
+          width: 180px;
+          height: 180px;
+          background:blue;
+        }
+      	100% {
+          width: 200px;
+          height: 200px;
+          background:green;
+        }
+      }
+
+      .spa:hover {
+          animation: myfirst 5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="spa">
+
+    </div>
+  </body>
+</html>

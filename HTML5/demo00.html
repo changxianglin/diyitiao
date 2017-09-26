@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Zhang Xianglin">
+    <meta name="description" content="demo for layout columns">
+    <title>demo columns</title>
+    <style media="screen">
+      .col {
+        padding: 120px;
+        border: 1px solid blue;
+        border-radius: 12px;
+        text-indent: 1em;
+        columns: 7em 5;
+        column-rule-style: dashed;
+        column-gap: 2em;
+      }
+      h1 {
+        background: orange;
+        text-align: center;
+        column-span: all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="col">
+      <h1>wo de yeap 编的身边有很多IT男，他们大多是从事的就是web前端的开发工作</h1>
+      <p>小编的身边有很多IT男，他们大多是从事的就是web前端的开发工作，尽快念书的时候觉得写网页太简单了，现在自己慢慢走上web前端开发的道路。技术男最喜欢对各种技术做研究，能用工具完成的事情绝不用人力。那么这些web前端开发工程师常用的谷歌浏览器插件有哪些呢？今天小编就给各位整理了五款自己在使用的chrome插件。</p>
+      <h3>yes to go</h3>
+      <p>XPath Helper可以支持在网页点击元素生成xpath，整个抓取使用了xpath、正则表达式、消息中间件、多线程调度框架（参考）。xpath 是一种结构化网页元素选择器，支持列表和单节点数据获取，他的好处可以支持规整网页数据抓取。
+如果我们要查找某一个、或者某一块元素的xpath路径，可以按住shift，并移动到这一块中，上面的框就会显示这个元素的xpath路径，右边则会显示解析出的文本内容，并且我们可以自己改动xpath路径，程序也会自动的显示对应的位置，可以很方便的帮助我们判断我们的xpath语句是否书写正确。是不是很方便呢？程序员就再也不需要通过搜索html源代码，定位一些id去找到对应的位置去解析网页了。</p>
+      <p>Vue.js devtools是基于google chrome浏览器的一款调试vue.js应用的开发者浏览器扩展。做前端开发的IT工程师应该比较熟悉这款工具，可以边侧边栏窗格中的页面，边检查代码。
+</p>
+      <p>React Developer Tools是一款由facebook开发的有用的Chrome 浏览器扩展，可以通过 Chrome Web存储获取。使用 Chrome Devtools 进行调试时，可以查看应用程序的 React 组件分层结构，而不是更加神秘的浏览器 DOM 表示。添加react developer tools到chrome，是对chrome开发工具的React调试工具。React的开发工具是开源Chrome DevTools延伸反应的JavaScript库。它允许你检查React在Chrome开发者工具组件的层次结构（原名WebKit Web Inspector）。你会得到新的标签要求在你的Chrome DevTools反应。这表明你的根反应组件在页面渲染，以及他们最终渲染组件。</p>
+    </div>
+  </body>
+</html>

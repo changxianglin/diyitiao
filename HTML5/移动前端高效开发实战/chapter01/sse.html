@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Serve-Sent Events Demo</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.addEventListener('load', function() {
+                var status = document.getElementById('status')
+                var output = document.getElementById('output')
+                var source
+                function connect() {
+                    source = new EventSource('stream')
+                    source.addEventListener('message', function(event) {
+                        output.textContent = event.data
+                    }, false)
+
+                    source.addEventListener('open', function(event) {
+                        status.textContent = '链接打开了'
+                    })
+
+                    source.addEventListener('error', function(event) {
+                        if (event.target.readyState === EventSource.CLOSED) {
+                            source.close()
+                            status.textContent = '链接关闭了!'
+                        } else {
+                            status.textContent = "连接关闭了！未知错误！"
+                        }
+                    }, false)
+                }
+                if(!!window.EventSource) {
+                    onnect()
+                } else {
+                    status.textContent = 'you browser not supports the'
+                }
+            }, false)
+        </script>
+    </body>
+</html>

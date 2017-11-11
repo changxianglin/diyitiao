@@ -14,7 +14,7 @@
         <input type="range" name="" value="" min="20" max="100" step="10">
         <hr>
         <form class="" >
-            <input type="text" name="" value="" placeholder="此项必填" required autofocus>
+            <input type="text" name="" value="" placeholder="此项必填" required>
                 <input type="submit" name="" value="提交">
         </form>
         <hr>
@@ -25,6 +25,13 @@
         <hr>
         <p contenteditable="true">there content can change to you want..</p>
         <hr>
+        <video id="video" autoplay style="width: 480px; height: 320px">
+
+        </video>
+        <div class="">
+            <button id = "capture" type="button" name="button" autofocus>拍照</button>
+        </div>
+        <canvas id="canvas" width="480" height="320"></canvas>
         <script type="text/javascript">
         function success(position){
             console.log('good', position.coords)

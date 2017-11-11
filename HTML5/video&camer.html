@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>video&camera</title>
+    </head>
+    <body>
+        <video id="video" autoplay style="width: 480px; height: 320px">
+
+        </video>
+        <div class="">
+            <button id = "capture" type="button" name="button" autofocus>拍照</button>
+        </div>
+        <canvas id="canvas" width="480" height="320"></canvas>
+        <script type="text/javascript">
+        function getUserMedia(constraints, success, error) {
+            if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error)
+            } else if(navigator.webkitGetUserMedia) {
+                navigator.webkitGetUserMedia(constraints, success, error)
+            } else if (navigator.mozGetUserMedia) {
+                navigator.mozGetUserMedia(constraints, success, error)
+            } else if (navigator.getUserMedia) {
+                navigator.getUserMedia(constraints, success, error)
+            }
+        }
+
+        var video = document.getElementById('video')
+        var canvas = document.getElementById('canvas')
+        var context = canvas.getContext('2d')
+
+        function success(stream) {
+            var CompatibleURL = window.URL || window.webkitURL
+            console.log(123)
+            video.src = CompatibleURL.createObjectURL(stream)
+            video.play()
+        }
+
+        function error(error) {
+            console.log('error: ', error.name, error.message)
+        }
+
+            if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia ||
+                    navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+                console.log('yep')
+                // navigator.mediaDevices.getUserMedia({ video: true})
+                // .then(function(stream) {
+                //     console.log('no yeah')
+                // })
+                // .catch(function(error) {
+                //     console.log('yeah to error' + error.name)
+                // })
+                getUserMedia({video:{width: 480, height: 320}}, success, error)
+            } else {
+                alert('no video')
+            }
+
+            document.getElementById('capture').addEventListener('click', function() {
+                context.drawImage(video, 0, 0, 480, 320)
+            })
+            setInterval(function() {
+                    context.drawImage(video, 0, 0, 480, 320)
+            }, 30)
+        </script>
+    </body>
+</html>

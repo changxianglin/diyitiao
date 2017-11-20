@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>form & js</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="FirstName">First name:</label>
+      <input type="text" id = "FirstName" name="FirstName" value="Bill" required>
+      <label for="LastName">Last name:</label>
+      <input type="text" id = "LastName" name="LastName" value="Gates" required>
+    </form>
+    <input type="submit" id = "submit" name="" value="Submit">
+    <script>
+      var findVal = function(selector) {
+        var findValue = document.querySelector(selector)
+        var getData = findValue.value
+        return getData
+      }
+
+      var sub = function() {
+        var findId = document.querySelector("#submit")
+          findId.addEventListener('click', function() {
+            var data = {
+              FirstName: findVal("#FirstName"),
+              LastName: findVal("#LastName"),
+            }
+            var setData = JSON.stringify(data)
+            
+            console.log(setData)
+          })
+      }
+      sub()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>file index</title>
+    <style media="screen">
+      .main {
+        width: 200px;
+        border: 1px solid red;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <input type="file" name="" value="">
+    </div>
+    <button type="button" name="button">send</button>
+    <script type="text/javascript">
+      var sendFiles = function() {
+        var search = document.querySelector('input')
+        var result = search.value
+        result.length > 0 ? result : result = null
+        return result
+      }
+
+      var changeBtnT = function() {
+        var searchBtn = document.querySelector('button')
+        searchBtn.disabled = true
+      }
+
+      var changeBtnF = function() {
+        var searchBtn = document.querySelector('button')
+        searchBtn.disabled = false
+      }
+
+
+      var clickBtn = function() {
+        var searchBtn = document.querySelector('button')
+        searchBtn.addEventListener('click', function() {
+          var file = sendFiles()
+          if (file != null) {
+            clickBtn()
+            changeBtnT()
+            setTimeout(function() {
+              changeBtnF()
+            }, 1000 * 2)
+          } else {
+            alert('plase choice files.')
+          }
+        })
+      }
+
+      var main = function() {
+        clickBtn()
+      }
+      main()
+    </script>
+  </body>
+</html>

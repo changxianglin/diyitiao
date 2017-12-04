@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      {
+        let a = 10
+        var b = 1
+      }
+
+      // log(a) // 报错 let 声明只能在 {} 内
+      log(b)
+
+      for (let i = 0; i < 10; i++) {
+        // log(i)
+      }
+      // log(i) 使用 let 声明出 {} 后不能访问
+
+      var a = []
+      for (var i = 0; i < 10; i++) {
+        a[i] = function() {
+          log(i)
+        }
+      }
+
+      a[6]() // 10 var 声明的变量 i 每次累加都会改变 i
+
+      var a = []
+      for (let i = 0; i < 10; i++) {
+        a[i] = function() {
+          log(i)
+        }
+      }
+
+      a[6]() //6 let 声明的变量 i 每次累加 i 都会是一个新变量
+
+      for (let i = 0; i < 3; i++) {
+        let i = 'abc'
+        log(i) // 循环变量是父作用域，循环体内是子作用域
+      }
+
+      log(foo) // var 的变量提升， 预编译
+      var foo = 2
+
+    //  log(bar)  bar 是 let 声明的不会出现变量提升
+      let bar = 2
+
+      var tmp = 123
+      if (true) {
+      //  tmp = 'abc' 使用了 let 声明 {} 区域内不受外部影响导致出现 暂时性死区
+        let tmp
+      }
+
+      if (true) {
+       // TDZ 开始
+       // tmp = 'abc'
+      //  log(tmp)
+
+        let tmp // TDZ 结束
+        log(tmp)
+
+        tmp = 123
+        log(tmp)
+      }
+
+      // typeof x 类型判断不再安全 发生了 暂时性死区
+      let x
+
+      function bar1(x = y, y = 2) {
+        return [x, y]
+      }
+
+      // bar1() 其中 x 等于 y 时，y 尚未声明
+
+      function bar2(x = 2, y = x) {
+        return [x, y]
+      }
+
+      bar2() // [2, 2]
+
+      var x1 = x1  // 可行
+      // let y = y 这是不可行
+
+      // function func() {
+      //   let a = 10
+      //   var a = 1 相同作用域内不能重复声明一个变量
+      // }
+
+      // func()
+
+      // function func1() {
+      //   let a = 10
+      //   let a = 1 相同作用域内不能重复声明一个变量
+      // }
+      //
+      // func1()
+
+        2. 块级作用域
+    </script>
+  </body>
+</html>

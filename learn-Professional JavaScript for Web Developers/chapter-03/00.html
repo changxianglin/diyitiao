@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      function test() {
+        var message = 'hi' // 局部变量
+        log(message)
+      }
+
+      test()
+      log(message) // 错误
+    </script>
+  </body>
+</html>

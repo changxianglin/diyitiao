@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>02</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // es5 中 5 种简单数据类型
+      // 1. Undefined
+      // 2. Null
+      // 3. Boolean
+      // 4. Number
+      // 5. String
+      // es5 中 1 种复杂数据类型
+      // 1. Object
+
+      // typeof 操作符
+      // 1. undefined
+      // 2. boolean
+      // 3. string
+      // 4. number
+      // 5. object
+      // 6. function
+
+      var log = console.log.bind(console)
+
+      var message
+      log(message == undefined)
+
+      var message = undefined
+      log(message == undefined)
+
+      // 未经过初始化 和 未声明的变量 执行 typeof 都是返回 undefined
+
+      var zhourong
+      log(typeof zhourong)
+      log(typeof zhangsan)
+
+      // 与 undefined 一样只有一个值的数据类型
+      var car = null
+      log(typeof car)
+
+      log('切记', null == undefined)
+
+      // 3.4.4 Boolean 类型
+    </script>
+  </body>
+</html>

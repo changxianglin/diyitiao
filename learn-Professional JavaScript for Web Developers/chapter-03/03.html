@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>03</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 操作符
+      // 一元操作符 ++ --
+
+      var age = 29
+      var anotherAge = --age + 2
+      log(age) // 先执行 -- 因此 age 改变成 28
+      log(anotherAge)
+
+      var num1 = 2
+      var num2 = 20
+      var num3 = --num1 + num2
+      var num4 = num1 + num2
+      log(num3) // 先执行 -- num1 改变成 1
+      log(num4) // num1 在上一个运算中已经改变其值成 1
+    </script>
+  </body>
+</html>

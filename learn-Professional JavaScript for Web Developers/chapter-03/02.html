@@ -44,6 +44,90 @@
       log('切记', null == undefined)
 
       // 3.4.4 Boolean 类型
+       var message = "Hello world!"
+       var messageAsBoolean = Boolean(message)
+       log('布尔值', messageAsBoolean)
+
+       var message = 'Hello world!'
+       if (message) {
+         log('Value is true.')
+       }
+
+       // Number 类型
+       var intNum = 55
+       var octalNum1 = 070
+       var octalNum2 = 079
+       var octalNum3 = 08
+       log(intNum, octalNum1, octalNum2, octalNum3)
+
+       var hexNum1 = 0xA
+       var hexNum2 = 0x1f
+       log(hexNum1, hexNum2)
+
+       var floatNum1 = 1.
+       log(floatNum1)
+
+       // 数字超界会出现 infinity 值
+
+       var test = 12
+       log(test/0)
+       log(NaN == NaN)
+       // isNaN 检测不是数值
+       log('isNaN', isNaN(NaN))
+       log(isNaN(10))
+       log(isNaN("10"))
+       log(isNaN('blue'))
+       log(isNaN(true))
+
+       //  非数值转换成数值 Number() parseInt() parseFloat()
+       log(Number(false))
+       log(Number(true))
+       log(Number(null))
+       log(Number(undefined))
+       //  Object 先 ValueOf()
+
+       log(Number('zhangsan'))
+       log(Number(''))
+       log(Number('0000011'))
+       log(Number(true))
+       //
+       log(parseInt('1234boue'))
+       log(parseInt(''))
+       log(parseInt('0xA'))
+
+       // 进值数
+       log(parseInt('10', 2))
+
+       // String
+       var text = 'this is the letter sigma: \u03a3.'
+       log(text.length)
+
+       var lang = 'JAVA'
+       lang = lang + 'Script'
+       log(lang)
+       // 以上例子关系到垃圾回收机制
+
+       var age = 11
+       var ageAsString = age.toString()
+       log(ageAsString)
+       var found = true
+       var foundAsString = found.toString()
+       log(foundAsString)
+
+       // number 数值、布尔值、对象、字符串都有 toString 方法
+       //  null & undefined  无
+       var num = 10
+       log(num.toString())
+       log(num.toString(2))
+       // null 返回 'null' undefined 返回 'undefined'
+       var value3 = null
+       var value4
+       log(String(value3))
+       log(String(value4))
+
+       // Object
+       var o = new Object()
+       
     </script>
   </body>
 </html>

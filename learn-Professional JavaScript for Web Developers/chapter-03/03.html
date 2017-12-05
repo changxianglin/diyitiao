@@ -17,10 +17,132 @@
 
       var num1 = 2
       var num2 = 20
-      var num3 = --num1 + num2
+      var num3 = --num1 + num2 // 先 递减 后 相加 最后赋值
       var num4 = num1 + num2
       log(num3) // 先执行 -- num1 改变成 1
       log(num4) // num1 在上一个运算中已经改变其值成 1
+
+      // 后置递减（递增）与前置递减（递增）有很的不一样
+      var num5 = 2
+      var num6 = 20
+      var num7 = num5-- + num6 // 先 相加 后 递减 最后赋值
+      var num8 = num5 + num6
+      log(num7)
+      log(num8)
+
+      var s1 = '2'
+      var s2 = 'z'
+      var b = false
+      var f = 1.1
+      var o = {
+        valueOf: function() {
+          return -1
+        }
+      }
+      log('s1', s1)
+      log(s2)
+      log(b)
+      log(f)
+      log(o)
+      //
+      log('s1', s1++)
+      log(s2++)
+      log(b++)
+      log(f--)
+      log(o--)
+      //
+      var s1 = '01'
+      var s2 = '1.1'
+      var s3 = 'z'
+      var b = false
+      var f = 1.1
+      var o = {
+        valueOf: function() {
+          return -1
+        }
+      }
+
+      s1 = +s1
+      s2 = +s2
+      s3 = +s3
+      b = +b
+      f = +f
+      o = +o
+      log(s1, s2, s3, b, f, o)
+
+      // 布尔操作符 NOT AND OR (!, &&, ||)
+      log(! false)
+      log(!'blue')
+      log(! 0)
+      log(! NaN)
+      log(!'')
+      log(! 12345)
+
+      log('!!', !!'blue')
+      log(!! 0)
+      log(!! NaN)
+      log(!!'')
+      log(!! 12345)
+
+      var found = true
+      // var result = (found && someUndefinedVariable) 改行发生错误的 someUndefinedVariable 未定义
+      log(result)
+
+      var found = false
+      var result = (found && someUndefinedVariable) // someUndefinedVariable 不用执行
+      log(result)
+
+      var result = true || false
+      log(result)
+
+      var found = true
+      var result = (found || someUndefinedVariable) // 由于 found = true 因此 someUndefinedVaribale 不执行
+      log(result)
+
+      var found = false
+      // var result = (found || someUndefinedVariable) 由于 found = false 因此 someUndefinedVaribale 执行（未定义）发生错误
+      log(result)
+
+      var c
+      var h = c || 23
+      log("h", h)
+      // 乘性操作符 * / %(乘，除，求模)
+      var result = 34 * 56
+      log(result)
+
+      var result = 66 / 11
+      log(result)
+
+      var result = 26 % 5
+      log(result)
+
+      // 加性操作符 + -
+       var result = 1 + 2
+       log(result)
+
+       var num1 = 5
+       var num2 = 10
+       var message = 'the sum of 5 and 10 is ' + num1 + num2
+       log(message)
+
+       // 关系操作符 < > <= >= 返回布尔值
+       // 字符串比较大小，按照第一个字符编码位置
+       // 非数字与数字比较 非数字会转化为数字 注意 isNaN
+
+       // 相等操作符
+       // 字符串、数值、布尔值比较容易 对象比较显得麻烦
+       // ==  ！=
+
+       // 对象时 必用 valueOf()
+       // === !==
+       //  == 会隐式转换 === 不会隐式转换
+
+       var num10 = 10
+       var num20 = 20
+       var max = (num10 > num20) ? num10:num20
+       log(max)
+
+       
     </script>
   </body>
 </html>

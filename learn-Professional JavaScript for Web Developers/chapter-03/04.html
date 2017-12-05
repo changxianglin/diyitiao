@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>04</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 语句
+      // 判断执行 if / else if
+      // 执行判断 do-while
+      // 循环执行 for
+      // for-in 精准枚举对象
+      var ball = {
+            name: 'zhangsan',
+            age: "26",
+            pro: 'FE',
+          }
+      for (var i in ball) {
+        log(i + '\n')
+      }
+
+      var i = 0
+      for(var value in window) {
+        log( (i++) + ' ' + value + '\n') // 循序不可预测
+      }
+      // break & continue
+      // with
+      // switch
+      //
+
+      
+    </script>
+  </body>
+</html>

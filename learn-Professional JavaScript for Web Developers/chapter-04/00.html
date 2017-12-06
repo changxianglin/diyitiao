@@ -65,6 +65,115 @@
 
       // 检测类型 typeof 检测基本类型是很有用
       // 引用类型 instanceof 检测
+
+      // 4.2 执行环境及作用域
+
+      var color = 'blue'
+
+      var changeColor = function() {
+        if (color == 'blue') {
+          color = 'red'
+        } else {
+          color = 'blue'
+        }
+      }
+
+      changeColor()
+      log('Color is now ' + color)
+
+      var color = 'blue'
+
+      var changeColor = function() {
+        var anotherColor = 'red'
+        var swapColors = function() {
+          var tempColor = anotherColor
+          anotherColor = color
+          color = tempColor
+        }
+
+        swapColors()
+      }
+
+        changeColor()
+      // 只能向上搜索作用域链查找值、不能向下搜素作用域链取值
+      var buildUrl = function() {
+        // va qs = '? debug=true'
+
+        with(location) {
+          var url = herf = qs
+        }
+
+        return url
+      }
+
+      // 全局作用域 & 局部作用域（函数作用域）
+      //  if & for 中尤其要注意
+      if (true) {
+        var color = 'blue'
+      }
+
+      log(color)
+
+      for (var i = 0; i < 10; i++) {
+        // doSomething(i)
+      }
+
+      log(i)
+
+      var test = function() {
+        log(a)
+        var a = 23
+      }
+      test()
+
+      // 声明变量
+
+      var add = function(num1, num2) {
+        var sum = num1 + num2
+        log(sum)
+        return sum
+      }
+
+      var result = add(23, 32)
+      // log(sum)
+      // 函数的参数是按值传递，因此 sum 是不能在 add 函数外部访问到
+
+      var add = function(num1, num2) {
+        sum = num1 + num2 // 因 sum 没有使用 var 声明 导致其提升为全部变量
+      }
+
+      var result = add(10, 20)
+      log(sum) // 此处可访问
+
+      // 搜索过程从作用域的前端开始 向上查询 （标识符）
+
+      var color = 'blue'
+
+      var getColor  = function() {
+        return color
+      }
+
+      log(getColor())
+      // 找到最近的标识符
+
+      // 垃圾回收机制（自动）
+      // 生命周期
+      // 局部变量（函数）执行的过程存在 直到其结束
+      // 1.标记清除
+      // 2.引用计数
+      var peroblem = function() {
+        var objectA = new Object()
+        var objectB = new Object()
+
+        objectA.someOtherObject = objectB
+        objectB.aontherObject = objectA
+      }
+
+      peroblem()
+      // 垃圾回收周期性运行
+
+      // 管理内存
+      // 解除引用 数据一旦不再有用将其设置 null
       
     </script>
   </body>

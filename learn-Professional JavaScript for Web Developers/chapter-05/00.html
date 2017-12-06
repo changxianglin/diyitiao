@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 引用类型
+
+      // 原生引用类型 Object、Array、Date、RegExp、Function
+
+      // Object 类型
+
+      var person = new Object()
+      person.name = 'Nicholas'
+      person.age = 23
+      log(person)
+
+      var person1 = {
+        name: 'Nicholas',
+        age: 23
+      }
+
+      log(person1)
+
+      // 对象字面量 是对象定义的一种简写形式而已
+
+      var displayInfo = function(args) {
+        var output = ''
+
+        if (typeof args.name == 'string') {
+          output += 'name: ' + args.name + '\n'
+        }
+
+        if (typeof args.age == 'number') {
+          output += 'Age：' + args.age + '\n'
+        }
+
+        log(output)
+      }
+
+      displayInfo({
+        name: 'zhangsan',
+        age: 25,
+      })
+
+      displayInfo({
+        name: 'zhourong',
+      })
+
+      // Array 类型
+      var names = [] //数组字面量
+      // instanceof Array
+      // 检测数组 Array.isArray
+      //  toLocaleString()、toString()、valueOf()
+
+      var colors = ['red', 'blue', 'green']
+      log(colors.toString())
+      log(colors.valueOf())
+      log(colors)
+
+      var person2 = {
+        toLocaleString: function() {
+          return 'zhangsan'
+        },
+
+        toString: function() {
+          return 'zhourong'
+        }
+      }
+
+      var person3 = {
+        toLocaleString: function() {
+          return 'wanger'
+        },
+
+        toString: function() {
+          return 'lisi'
+        }
+      }
+
+      var people = [person2, person3]
+      log(people)
+      log(people.toString())
+      log(people.toLocaleString())
+
+      // 数组 join 方法
+      var colors = ['red', 'green', 'blue']
+      log(colors.join(','))
+      log(colors.join('||'))
+
+      // 数组 （堆）栈方法 push (推入数据、返回数组 length) pop (弹出最后一个数据、返回弹出的数据)
+      var colors10 = new Array()
+      var count10 = colors10.push('red', 'green')
+      log(count10)
+
+      count10 = colors10.push('black')
+      log(count10)
+
+      var item = colors10.pop()
+      log(item)
+
+      // 数组 队列方法 push()、 shift(弹出第一个数据，返回弹出的数据)
+      var colors = new Array()
+      var count = colors.push('red', 'yellow')
+      log(count)
+
+      count = colors.push('black')
+      log(count)
+
+      var item = colors.shift()
+      log(item)
+      log(colors.length)
+
+      // 数组 unshift() 方法 推入数据（在前端推入） 返回数组 length
+      var colors = new Array()
+      var count = colors.unshift('red', 'pink')
+      log(colors)
+      // colors = []
+      log(count)
+
+      count = colors.unshift('perple')
+      log(colors)
+      log(count)
+
+      var item = colors.pop()
+      log(item)
+      log(colors.length)
+
+      // 数组 重新排序法 reverse() sort()
+      var values = [1, 2, 3, 4, 5]
+      values.reverse()
+      log(values)
+
+      var values = [0, 1, 5, 10, 15]
+      values.sort()
+      log(values)
+
+      var compare = function(value1, value2) {
+        if (value1 < value2) {
+          return -1
+        } else if (value1 > value2) {
+          return 1
+        } else {
+          return 0
+        }
+      }
+
+      var compare = function(value1, value2) {
+        return value1 - value2
+      }
+
+      var values = [0, 1, 5, 10, 15]
+      // -1 -1 -1 -1 升序
+      values.sort(compare)
+      log(values)
+
+      var compare = function(value1, value2) {
+        if(value1 < value2) {
+          return 1
+        } else if (value1 > value2) {
+          return -1
+        } else {
+          return 0
+        }
+      }
+
+      var compare = function(value1, value2) {
+        return value2 - value1
+      }
+
+      var values = [0, 1, 5, 10, 15]
+      // 1 1 1 1 降序
+      values.sort(compare)
+      log(values)
+
+      // 操作方法 concat() 合并
+
+      var colors = ['red', 'green', 'blue']
+      var color2 = colors.concat('yellow', ['black',])
+
+      log(colors)
+      log(color2)
+
+      //  slice() 切片
+
+
+      var colors = ['red', 'green', 'blue', 'yellow', 'purple']
+      var colors2 = colors.slice(1)
+      var colors3 = colors.slice(1, 4)
+
+      log(colors2)
+      log(colors3)
+
+    // concat() & slice() 都不影响原数组
+
+    // splice() 删除、插入、替换
+
+    var colors = ['red', 'green', 'blue']
+    var removed = colors.splice(0, 1) //从第 0 项开始、删除 1 项
+
+    log(colors)
+    log(removed)
+
+    removed = colors.splice(1, 0, 'yellow', 'orange') // 从第 1 项开始 删除 0 项 插入 2 项
+
+    log(colors)
+    log(removed)
+
+    removed = colors.splice(1, 1, 'red', 'purple') // 从第 1 项开始 删除 1 项 插入 2 项
+
+    log(colors)
+    log(removed)
+
+    // 位置方法 indexOf()、lastIndexOf()
+
+    var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+    log(numbers.indexOf(4))
+    log(numbers.lastIndexOf(4))
+
+    log(numbers.indexOf(4, 4))
+    log(numbers.lastIndexOf(4, 4))
+
+    var person = {name : 'zhourong'}
+    var people = [{name : 'zhourong'}]
+
+    var morePeople = [person]
+
+    log(people.indexOf(person))
+    log(morePeople.indexOf(person))
+
+    // 迭代方法 every(), filter(), forEach(), map(), some() 不会改变原值
+
+    var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+    var everyResult = numbers.every(function(item, index, array) {
+      return (item > 2)
+    })
+
+    log(everyResult)
+
+    var someResult = numbers.some(function(item, index, array) {
+      return (item > 2)
+    })
+
+    log(someResult)
+
+    var filterResult = numbers.filter(function(item, index, array) {
+      return (item > 2)
+    })
+
+    log(filterResult)
+
+    var mapResult = numbers.map(function(item, index, array) {
+      return item * 2
+    })
+
+    log(mapResult)
+
+    numbers.forEach(function(item, index, array) {
+      log(item * 3)
+    })
+
+    // 缩小方法 reduce() & reduceRight()
+
+    var values = [1, 2, 3, 4, 5]
+    var sum = values.reduce(function(prev, cur, index, array) {
+      return prev + cur
+    })
+
+    log(sum)
+
+    var values = [1, 2, 3, 4, 5]
+    var sum = values.reduceRight(function(prev, cur, index, array) {
+      return prev + cur
+    })
+
+    log(sum)
+
+    </script>
+  </body>
+</html>

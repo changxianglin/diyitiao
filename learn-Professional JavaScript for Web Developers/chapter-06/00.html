@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 面向对象 oo
+
+      // 理解对象
+
+    var person = new Object()
+    person.name = 'zhangsan'
+    person.age = 25
+    person.job = 'FE'
+
+    person.sayName = function() {
+      log(this.name)
+    }
+    // person.sayName()
+
+    var person = {
+      name: 'zhangsan',
+      age: 29,
+      job: 'software Enginner',
+
+      sayName: function() {
+        log(this.name)
+      }
+    }
+    person.sayName()
+
+    var test = function() {
+      log(23)
+      return 23
+    }
+
+    test()
+
+    var test2 = () => {
+      log(45)
+    }
+
+    test2()
+
+    var person = {
+      name: 'zhourong',
+    }
+
+    var person = {}
+    Object.defineProperty(person, 'name', {
+      wirtable: false,
+      value: 'zhangsan',
+    })
+
+    log(person.name)
+    person.name = 'Greg'
+    log(person.name)
+
+
+    var book = {
+      _year: 2004,
+      edition:1
+    }
+
+    Object.defineProperty(book, 'year', {
+      get: function() {
+        return this._year
+      },
+
+      set: function(newValue) {
+        if(newValue > 2004) {
+          this._year = newValue
+          this.edition += newValue -2004
+          log(this.edition)
+        }
+      }
+    })
+
+    book.year = 2005
+    log(book.edition)
+
+    // 创建对象
+    // 工厂模式
+    var createPerson = function(name, age, job){
+      var o = new Object()
+      o.name = name
+      o.age = age
+      o.job = job
+      o.sayName = function() {
+        log(this.name)
+      }
+      return o
+    }
+
+    var person1 = createPerson('zhangsan', 25, 'FE')
+    var person2 = createPerson('zhourong', 23, 'web')
+
+    // 构造函数模式
+
+    var Person = function(name, age, job) {
+      this.name = name
+      this.age = age
+      this.job = job
+      this.sayName = function() {
+        log(this.name)
+      }
+    }
+
+    var person3 = new Person('lisi', 22, 'soft en')
+    var person4 = new Person('wanger', 23, 'soft ii')
+
+    log(person3.constructor == Person)
+    log(person4.constructor == Person)
+
+    // constructor 标识对象类型
+    // instanceof
+     log(person3 instanceof Object)
+     log(person3 instanceof Person)
+
+     log(person1.sayName == person2.sayName)
+
+     var Persona = function(name, age, job) {
+       this.name = name
+       this.age = age
+       this.job = job
+       this.sayName = sayName
+     }
+
+     function sayName() {
+       log(this.name)
+     }
+
+     var person5 = new Persona('zhangsan', 25, 'FE')
+     var person6 = new Persona('zhourong', 23, 'web')
+     log(person5.sayName == person6.sayName)
+
+     // 原型模式
+    function Persons() {
+
+    }
+
+    Persons.prototype.name = "zhourong"
+    Persons.prototype.age = 26
+    Persons.prototype.job = 'FE'
+    Persons.prototype.sayName = function() {
+      log(this.name)
+    }
+
+    var person7 = new Persons()
+    person7.sayName()
+
+    var person8 = new Persons()
+    person8.sayName()
+
+    log(person7.sayName == person8.sayName)
+
+    // 理解原型对象
+
+    // hasOwnProperty() 检测是存在于实例中还是原型中
+
+    function Personw() {
+
+    }
+
+    Personw.prototype.name = 'zhangsan'
+    Personw.prototype.age = 29
+    Personw.prototype.job = 'FE'
+    Personw.prototype.sayName = function() {
+      log(this.name)
+    }
+
+    var person9 = new Personw()
+    var person10 = new Personw()
+
+    log(person9.hasOwnProperty('name'))
+
+    person9.name = 'lizi'
+    log(person9.name)
+    log(person9.hasOwnProperty('name'))
+
+    log(person10.name)
+    log(person10.hasOwnProperty('name'))
+
+    // 原型与 in 操作符
+    //  使用 in 无论在原型中 还是实例中都会返回 true
+    log('name' in person9)
+    log('name' in person10)
+    // 同时使用 hasOwnProperty & in 即可判断是位于 对象中 还是原型中
+
+    // for-in
+
+    var o = {
+      toString: function() {
+        return 'My Object'
+      }
+    }
+
+    for(var prop in o) {
+      if(prop == 'toString'){
+        log('Found toString')
+      }
+    }
+
+    // Object.keys()  取得可枚举的属性
+
+    // Object.getOwnPropertyNames() 取得所有的属性
+
+    // 更简单的原型语法
+
+    function Personp() {
+
+    }
+
+    Personp.prototype = {
+      name: 'Nicholas',
+      age: 29,
+      jog: 'FE',
+      sayName: function() {
+        log(this.name)
+      }
+    }
+
+    var friend = new Personp()
+
+    log(friend instanceof Object)
+    log(friend instanceof Personp)
+    log(friend.constructor == Personp)
+    log(friend.constructor == Object)
+
+    function Personp() {
+
+    }
+
+    Personp.prototype = {
+      constructor: Person,
+      name: 'Nicholas',
+      age: 29,
+      jog: 'FE',
+      sayName: function() {
+        log(this.name)
+      }
+    }
+
+    // 原型的动态性
+    // 修改原型会 修改实例的值
+    // 原生对象的原型 (Object, Array, String)
+    // 原型对象的最大问题是 共享的本性导致的
+
+
+    // 组合使用构造函数模式&原型函数模式
+
+    function Persone(name, age, job) {
+      this.name = name,
+      this.age = age,
+      this.job = job,
+      this.friends = ['Shelby', 'Court']
+    }
+
+    Persone.prototype = {
+      constructor: person,
+      sayName: function() {
+        log(this.name)
+      }
+    }
+
+    var person11 = new Persone('zhouzhou', 24, 'net en')
+    var person12 = new Persone('zhangzhang', 25, 'FE')
+
+    person11.friends.push('Van')
+    log(person11.friends)
+    log(person12.friends)
+    log(person11.friends == person12.friends)
+    log(person11.sayName == person12.sayName)
+
+    // 动态原型模式
+
+    function Person(name, age, job) {
+      this.name = name
+      this.age = age
+      this.job = job
+
+      if (typeof this.sayName != 'function') {
+        Person.prototype.sayName = function() {
+          log(this.name)
+        }
+      }
+    }
+
+    var friend = new Person('zhourong', 25, 'FE')
+    friend.sayName()
+
+    // 寄生构造函数模式
+    function Person(name, age, job) {
+      var o = new Object()
+      o.name = name
+      o.age = age
+      o.sayName = function() {
+        log(this.name)
+      }
+      return o
+    }
+    var friend = new Person('zhangsan', 25, 'FE')
+    friend.sayName()
+
+
+    function SpecialArray() {
+      var values = new Array()
+
+      values.push.apply(values, arguments)
+
+      values.toPipedString = function() {
+        return this.join('|')
+      }
+
+      return values
+    }
+
+    var colors = new SpecialArray('red', 'blue', 'green')
+    log(colors.toPipedString())
+
+    function Personz(name, age, job) {
+      var o = new Object()
+
+      o.sayName = function() {
+        log(name)
+      }
+
+      return o
+    }
+
+    var friend = Personz('zhangzhang', 25, "FE")
+    friend.sayName()
+    </script>
+  </body>
+</html>

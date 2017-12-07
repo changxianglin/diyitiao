@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>01</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 继承
+
+      log('继承')
+
+      // 原型链
+      // 实例与原型的链接
+
+      function SuperType() {
+        this.property = true
+      }
+      SuperType.prototype.getSuperValue = function() {
+        return this.property
+      }
+
+      function SubType() {
+        this.subproperty = false
+      }
+
+      SubType.prototype = new SuperType()
+
+      SubType.prototype.getSubValue = function() {
+        return this.subproperty
+      }
+
+      var instance = new SubType()
+      log(instance.getSuperValue())
+      // 一环一环的前行搜索直到原型链末端
+
+      // 确定原型和实例的关系
+      // instanceof 操作符
+
+      log(instance instanceof Object)
+      log(instance instanceof SuperType)
+      log(instance instanceof SubType)
+
+      // isPrototypeOf() 原型链中出现过得原型
+      log(Object.prototype.isPrototypeOf(instance))
+      log(SuperType.prototype.isPrototypeOf(instance))
+      log(SubType.prototype.isPrototypeOf(instance))
+
+      //  原型链的不能使用字面量创建原型方法，因每次都都会重写 Object
+
+      // 原型中 不能给超类传参而不影响实例
+
+      // 借用构造函数
+
+      function SuperTypes() {
+        this.colors = ['red', 'blue', 'green']
+      }
+
+      function SubTypes() {
+        SuperTypes.apply(this)
+      }
+
+      var instance1 = new SubTypes()
+      instance1.colors.push('black')
+      log(instance1.colors)
+
+      var instance2 = new SubTypes()
+      log(instance2.colors)
+
+      // 1. 传参
+      function SuperTypea(name) {
+        this.name = name
+      }
+
+      function SubTypea() {
+        SuperTypea.call(this, 'zhangzhang')
+        this.age = 25
+      }
+
+      var instance = new SubTypea()
+      log(instance.name)
+      log(instance.age)
+
+      // 问题 无法复用
+
+      // 组合继承
+
+      function SuperType(name) {
+        this.name = name
+        this.colors = ['red', 'blue', 'green']
+      }
+
+      SuperType.prototype.sayName = function() {
+        log(this.name)
+      }
+
+      function SubType(name, age) {
+        SuperType.call(this, arguments)
+
+        this.age = age
+      }
+
+      SubType.prototype = new SuperType()
+
+      SubType.prototype.sayAge = function() {
+        log(this.age)
+      }
+
+      var instance1 = new SubType('zhangsan', 24)
+      instance1.colors.push('purple')
+      log(instance1.colors)
+      instance1.sayName()
+      instance1.sayAge()
+    </script>
+  </body>
+</html>

@@ -112,6 +112,44 @@
       log(instance1.colors)
       instance1.sayName()
       instance1.sayAge()
+
+      // 原型式继承
+
+      function object(o) {
+        function F(){}
+        F.prototype = o
+        return new F()
+      }
+
+      var person = {
+        name: 'zhourong',
+        friends: ['Shelby', 'court', 'Van'],
+      }
+
+      var anotherPerson = object(person)
+      anotherPerson.name = 'Greg'
+      anotherPerson.friends.push('Rob')
+
+      var yetAnoterhPerson = object(person)
+      yetAnoterhPerson.name = 'Linda'
+      yetAnoterhPerson.friends.push('Barbie')
+
+      log(person.friends)
+
+      var person = {
+        name: 'zhangsan',
+        friends: ['Shelby', 'Court', 'Van'],
+      }
+
+      var anotherPerson = Object.create(person)
+      anotherPerson.name = 'Greg'
+      anotherPerson.friends.push('Rob')
+
+      var yetAnoterhPerson = Object.create(person)
+      yetAnoterhPerson.name = 'Linda'
+      yetAnoterhPerson.friends.push('Barbie')
+
+      log(person.friends)
     </script>
   </body>
 </html>

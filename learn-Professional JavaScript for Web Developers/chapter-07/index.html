@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      // 函数表达式
+
+      function functionName(arg0, arg1, arg2) { // 函数声明式 语法
+         // 函数体
+      }
+      // 函数声明式，一个重要的特征就是 函数声明的提升
+      // 执行代码之前会先读取函数声明，就是可以把 函数声明放在调用后面
+      sayHi() // 声明式 不会报错
+      function sayHi() {
+        log('Hi!')
+      }
+    </script>
+  </body>
+</html>

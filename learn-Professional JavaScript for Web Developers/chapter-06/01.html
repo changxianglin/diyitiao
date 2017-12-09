@@ -150,6 +150,64 @@
       yetAnoterhPerson.friends.push('Barbie')
 
       log(person.friends)
+
+      // 寄生组合式继承
+
+      function SuperType(name) {
+        this.name = 'zhangsan'
+        this.color = ['red', 'blue', 'green']
+      }
+
+      SuperType.prototype.sayName = function() {
+        log(this.name)
+      }
+
+      function SubType(name, age) {
+        SuperType.call(this, name)
+
+        this.age = age
+      }
+
+      SubType.prototype = new SuperType()
+      SubType.prototype.constructor = SubType
+      SubType.prototype.sayAge = function() {
+        log(this.age)
+      }
+
+      function inheritPrototype(subType, superType) {
+        var prototype = object(superType.prototype)
+        prototype.constructor = subType
+        subType.prototype = prototype
+      }
+
+      function SuperType(name) {
+        this.name = name
+        this.colors = ['red', 'blue', 'green']
+      }
+
+      SuperType.prototype.sayName = function() {
+        log(this.name)
+      }
+
+      function SubType(name, age) {
+        SuperType.call(this, name)
+
+        this.age = age
+      }
+
+      inheritPrototype(SubType, SuperType)
+
+      SubType.prototype.sayAge = function() {
+        log(this.age)
+      }
+
+      // instanceof, isPrototypeOf() 可以正常使用，因此开发人员普遍认为寄生式组合是继承的最理想继承范式
+      // 面向对象（oo) [ooA,ooD,ooP , 面向对象分析，面向对象设计，面向对象编程]
+      // js 的面向对象（es5）是基于对象在代码执行过程中创建和增强，因此具有动态性
+      // 而非严格的实体。没有类的情况下，可以采用下列模式创建对象安
+      // 1.工厂模式（函数调用） 2.构造函数模式 （new） 3.原型模式 （prototype)
+      // 原型链实现继承 || 继承模式
+      // 1.原型式继承 2.寄生式继承 3.寄生组合式继承
     </script>
   </body>
 </html>

@@ -18,6 +18,112 @@
       function sayHi() {
         log('Hi!')
       }
+
+      var functionName = function(arg0, arg1, arg2) {
+        // 函数体
+      }
+      // 以上这是匿名函数，也叫拉姆达函数
+
+      // sayHi1()   会报错，因该函数是表达式。
+      var sayHi1 = function() {
+        log("hi111!")
+      }
+
+      // condition 在执行前 sayHi 函数提前执行导致没法正确返回
+      // if(condition) {
+      //   function sayHi(){
+      //     log('HI!')
+      //   }
+      // } else {
+      //   function sayHi() {
+      //     log('Yo')
+      //   }
+      // }
+
+      var sayHi2
+      var condition = false
+      if (condition) {
+        sayHi2 = function() {
+          log('Hi!')
+        }
+      } else {
+        sayHi = function() {
+          log('Yo!')
+        }
+      }
+
+
+      // 返回匿名函数
+      function createComparisionFunction(propertyName) {
+        return function(object1, object2) {
+          var value1 = object1[propertyName]
+          var value2 = object2[propertyNmae]
+
+          if (value <　value2) {
+            return -1
+          } else if (value1 > value2) {
+            return 1
+          } else {
+            return 0
+          }
+        }
+      }
+
+      //递归
+      function factorial(num) {
+        if (num <= 1) {
+          return 1
+        } else {
+          return num * factorial(num - 1)
+        }
+      }
+      // var anotherFactorial = facorial
+      // factorial = null
+      // log(noterhFactorial(4))
+
+      function factorial(num) {
+        if (num <= 1) {
+          return -1
+        } else {
+          return num * arguments.callee(num - 1)
+        }
+      }
+
+      var facorial = (function f(num) {
+        if (num <= 1) {
+          return 1
+        } else {
+          return num * f(num - 1)
+        }
+      })
+
+      // var compareNames = createComparisionFunction('name')
+      // var result = compareNames({name : 'zhangsan'}, {name: 'Greg'})
+      compareNames = null
+
+      function createFunctions() {
+        var result = new Array()
+
+        for (var i = 0; i < 10; i++) {
+          result[i] = function() {
+            return i
+        }
+      }
+      return result
+    }
+
+    function createFunctions() {
+      var result = new Array()
+      for (var i = 0; i < 10; i++) {
+        result[i] = function(num) {
+          return function() {
+            return num
+          }
+        }(i)
+      }
+      return result
+    }
+    createFunctions()
     </script>
   </body>
 </html>

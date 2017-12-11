@@ -277,7 +277,91 @@
       //   }
       // })()
 
-      
+
+      // 模块模式
+      var singleton = {
+        name: value,
+        method: function() {
+          //
+        }
+      }
+
+      var singleton  = function() {
+        var privateVarible = 10
+
+        function privateFunction() {
+          return false
+        }
+
+        return {
+          publicProperty: true,
+          publicMethod: function() {
+            priveateVariable++
+            return privateFunction()
+          }
+        }
+      }()
+
+      var application = function() {
+        var components = new Array()
+
+        compents.push(new BaseComponent())
+
+        return {
+          getComponentCount : function() {
+            return components.length
+          },
+
+           registerComponent : function(component) {
+             if(typeof component == 'object') {
+               components.push(component)
+             }
+           }
+        }
+      }()
+
+      // 增强的模块模式
+      var singleton = function() {
+        var privateVariable = 10
+
+        function privateFunction() {
+          return false
+        }
+
+        var object = new CustomType()
+
+        object.publicProperty = true
+
+        object.publicMethod = function() {
+          privateVariable++
+          return privateFunction()
+        }
+
+        return object;
+      }
+
+      var application = function() {
+        var components = new Array()
+
+        components.push(new BaseComponent())
+
+        var app = new BaseComponent()
+
+        app.getComponentCount = function() {
+          return components.length
+        }
+
+        app.registerComponent = function(component) {
+          if(typeof component == 'object') {
+            components.push(component)
+          }
+        }
+        return app
+      }()
+
+      // 小结：
+      //  函数表达式
+      // 闭包 （模仿块级作用域）（创建私有变量）（特权方法）
     </script>
   </body>
 </html>

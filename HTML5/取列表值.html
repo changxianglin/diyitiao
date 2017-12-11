@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <ul>
+      <li>张三<span>1</span></li>
+      <li>李四<span>2</span></li>
+      <li>王二<span>3</span></li>
+      <li>赵五<span>4</span></li>
+    </ul>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+      var list = function() {
+        var listN = document.querySelector('ul')
+        listN.addEventListener('click', function(e) {
+          log(e.target)
+          var num = listN.querySelectorAll('li')
+          // log('aa', num.length)
+          for (var i = 0; i < num.length; i++) {
+            var span = num[i].querySelector('span')
+            var element = e.target
+            // log('element', element)
+            var values =  element.querySelector('span')
+            if (span && values) {
+              log(values.innerText)
+              return
+            } else {
+              log(e.target.innerText)
+              return
+            }
+          }
+        })
+      }
+
+      list()
+    </script>
+  </body>
+</html>

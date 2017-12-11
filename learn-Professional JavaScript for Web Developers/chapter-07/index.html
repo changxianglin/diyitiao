@@ -124,6 +124,160 @@
       return result
     }
     createFunctions()
+
+    // this
+    var name = 'this Window'
+
+    var object = {
+      name: 'My Object',
+
+      getNameFunc: function() {
+        return function() {
+          return this.name
+          // log(this.name)
+        }
+      }
+    }
+
+    log(object.getNameFunc())
+
+    var name = 'The window'
+
+    var object = {
+      name : 'My Object',
+
+      getNameFunc: function() {
+        var that = this
+        return function() {
+          return that.name
+        }
+      }
+    }
+
+    log(object.getNameFunc()())
+
+    var name = 'The Window'
+
+    var object = {
+      name : 'My Object',
+
+      getName: function() {
+        return this.name
+      }
+    }
+    object.getName()
+    // (object.getName)()
+    // (object.getName = object.getName)()
+
+    // 内存泄漏
+    function assignHandler(){
+      var element = document.getElementById('someElement')
+      element.onclick = function() {
+        log(element.id)
+      }
+    }
+
+    function assignHandler() {
+      var element = document.getElementById('someElement')
+      var id = element.id
+
+      element.onclick = function() {
+        log(id)
+      }
+
+      element = null
+    }
+
+    // function outputNumber(count) {
+    //   for(var i = 0; i < count; i++) {
+    //     log(i)
+    //   }
+    //   log(i)
+    // }
+
+    function outputNumbers(count) {
+      for(var i = 0; i < count; i++) {
+        log(i)
+      }
+
+      var i
+      log(i)
+    }
+
+    (function() {
+      //
+    })()
+
+    var count = 5
+    outputNumbers(count)
+
+    var someFunction = function() {
+      //
+    }
+    someFunction()
+
+    // (function() {
+    //
+    //   var now = new Date()
+    //   if (now.getMonth() == 11 && now.getDate() == 11) {
+    //       log('Happy new year!')
+    //   }
+    // })()
+    //私有变量
+    function add(num1, num2) {
+      var sum = num1 + num2
+      return sum
+    }
+    // 私有变量与特权方法
+    function MyObject() {
+      var privateVarible = 10
+
+      function privateFunction() {
+        return false
+      }
+
+      this.publicMethod = function() {
+        priveateVariable++
+        return privateFunction()
+      }
+    }
+
+      // 隐藏不应该被修改的数据
+      function Person(name) {
+        this.getName = function() {
+          return name
+        }
+
+        this.setName = function(value) {
+          name = value
+        }
+      }
+
+      var person = new Person('Nicholas')
+      log(person.getName())
+
+      person.setName('Greg')
+      log(person.getName())
+
+      // 静态私有变量
+      // (function() {
+      //   var privateVarible = 10
+      //
+      //   function privateFunction() {
+      //       return false
+      //   }
+      //
+      //   MyObject = function() {
+      //
+      //   }
+      //
+      //   MyObject.prototype.publicMethod = function() {
+      //     privateVarible++
+      //     return privateFunction()
+      //   }
+      // })()
+
+      
     </script>
   </body>
 </html>

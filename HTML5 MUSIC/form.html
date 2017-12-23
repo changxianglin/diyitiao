@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>form</title>
+  </head>
+  <body>
+    <button type="button" name="button" onclick = "console.log(123)">try</button>
+    <form class=""  method="post">
+      <input type="submit" name="" value="Sumit Form">
+      <button type="submit" name="button">Sumit Form</button>
+      <input type="image" src = "" alt = 'no show'>
+
+      <hr>
+      <input type="reset" name="" value="Reset Form">
+      <button type="reset" name="button">Reset Form</button>
+      <br>
+      <ul>
+        <li><input  id = 'che' type = 'radio' name = 'color' value = 'red'>Red</li>
+        <li><input type = 'checkbox' name = 'color' value = 'blue'>Blue</li>
+      </ul>
+      <hr>
+      <input type="text" name="" value="" autofocus>
+    </form>
+    <script type="text/javascript">
+      var firstForm = document.forms[0]
+      var myForm = document.forms["form2"]
+      // 先验证表单
+      // 提交后短时间内应禁用提交按钮
+      var foo = document.querySelector('button')
+
+      setInterval(function() {
+        // foo.onclick()
+      })
+      var bar = document.querySelector('#che')
+      bar.disabled = true
+      // input & button 的 type 可以动态修改 selector 的 type 只读
+      EventUtil.addHandler(window, 'load', function(event) {
+        document.form[0].element[0].focus()
+      })
+      // focus()、 blur()
+    </script>
+  </body>
+</html>

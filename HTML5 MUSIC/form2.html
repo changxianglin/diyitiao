@@ -10,13 +10,27 @@
       <hr>
       <textarea name="name" rows="25" cols="5">initial value</textarea>
       <hr>
-      
+      <input type="text" name="tell" value="" id = 'texTel1' maxlength="3">
+      <input type="text" name="tel2" value="" id = 'texTel2' maxlength="3">
+      <input type="text" name="tel3" value="" id = 'texTel3' maxlenght="4">
+      <hr>
+      <input type="text" name="username" value="" required>
+      <input type="email" name="email" value="" required>
+      <input type="url" name="homepage" value="" required>
+      <input type="number" name="count" value="" min="0" max="100" step="20">
+      <select class="" name="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <hr>
+      <input type="submit" name="" value="submit">
     </form>
     <script type="text/javascript">
-    vas textbox = document.forms[0].elements['textbox1']
-    alert(textbox.value)
+    // vas textbox = document.forms[0].elements['textbox1']
+    // alert(textbox.value)
 
-    textbox.value = 'Some new value '
+    // textbox.value = 'Some new value 'u
+    var isRequireSupported = 'required' in document.createElement('input')
     </script>
   </body>
 </html>

@@ -20,6 +20,37 @@
     xhr.open('POST', 'postexample.php', true)
     var form = document.getElementById('user-info')
     xhr.send(new FormData(form))
+    // 事件进度
+    var xhr = createXHR()
+    xhr.onload = function() {
+      if((xhr.status >= 200) || xhr.status == 304) {
+        alert(xhr.responseText)
+      } else {
+        alert('Request was unsuccessful: ' + xhr.status)
+      }
+    }
+    xhr.open('GET', 'altevent.php', true)
+    xhr.send(null);
+    //  只要收到服务器的相应就会触发 load 事件，因此需要检查 status 属性
+
+    // progress 事件
+    var xhr = createXHR()
+    xhr.onload = function(event) {
+      if((xhr.status >= 200) || xhr.status == 304) {
+        alert(xhr.responseText)
+      } else {
+        alert('Request was unsuccessful: ' + xhr.status)
+      }
+    }
+    xhr.onprogress = function(event) {
+      var divStatus = document.getElementById('Status')
+      if (event.lengthComputable) {
+        divStatus.innerHTML = 'Received ' + event.postion + ' of ' + event.totalSize + ' Bytes'
+      }
+    }
+    xhr.open('get', 'altevent.php', true)
+    xhr.send(null)
+    
     </script>
   </body>
 </html>

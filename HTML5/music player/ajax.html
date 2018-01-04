@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <h1>ajax</h1>
+    <script type="text/javascript">
+      var serialize = function() {} // 表单序列化
+      var xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4) {
+
+        }
+      }
+      xhr.open('post', 'example.php', true)
+      xhr.setRequestHeader("Content-Type", 'application/x-wwww-form-urlencoded')
+      xhr.form = document.getElementById('user-info')
+      xhr.send()
+      xhr.send(serialize(form))
+      
+    </script>
+  </body>
+</html>

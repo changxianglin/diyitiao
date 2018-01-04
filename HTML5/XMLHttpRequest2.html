@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>XMLHttpRequest</title>
+  </head>
+  <body>
+    <h1>XMLHttpRequest</h1>
+    <script type="text/javascript">
+    var xhr = createXHR()
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState == 4) {
+        if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          alert(xhr.responseText)
+        } else {
+          alert('Request was unsuccessful: ' + xhr.status)
+        }
+      }
+    }
+    xhr.open('POST', 'postexample.php', true)
+    var form = document.getElementById('user-info')
+    xhr.send(new FormData(form))
+    </script>
+  </body>
+</html>

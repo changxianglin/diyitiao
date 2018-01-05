@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cors</title>
+  </head>
+  <body>
+    <h1>cors</h1>
+    <script type="text/javascript">
+    //  CSRF
+    //  XSS
+    var xdr = new XDomainRequest()
+    xdr.onload = function() {
+      alert(xdr.responseText)
+    }
+    xdr.open('get', 'http://www.somewhere-else.com/page')
+    xdr.send()
+
+    // 检测失败
+    var xdr = new XDomainRequest()
+    xdr.onload = function() {
+      alert(xdr.responseText)
+    }
+    xdr.onerror = function() {
+      alert('An error occurred.')
+    }
+    xdr.open('get', 'http://www.somewhere-else.com/page')
+    xdr.send()
+
+    // 终止请求
+    var xdr = new XDomainRequest()
+    xdr.onload = function() {
+      alert(xdr.responseText)
+    }
+    xdr.onerror = function() {
+      alert('An error occurred.')
+    }
+    xdr.timeout = 1000
+    xdr.ontimeout = function() {
+      alert('Request took too long.')
+    }
+    xdr.open('get', 'http://www.somewhere-else.com/page')
+    xdr.send()
+
+    // 设置请求头部
+    var xdr = new XDomainRequest()
+    xdr.onload = function() {
+      alert(xdr.responseText)
+    }
+    xdr.onerror = function() {
+      alert('An error occurred.')
+    }
+    xdr.timeout = 1000
+    xdr.ontimeout = function() {
+      alert('Request took too long.')
+    }
+    xdr.open('get', 'http://www.somewhere-else.com/page')
+    xdr.contentType = 'application/x-www-form-urlencoded'
+    xdr.send('name1=value1&name2=value2')
+    </script>
+  </body>
+</html>

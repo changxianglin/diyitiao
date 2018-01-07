@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>corsOhter</title>
+  </head>
+  <body>
+    <h1>cors</h1>
+    <script type="text/javascript">
+        var xhr = createXHR()
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+              alert(xhr.responseText)
+            } else {
+              alert('Request was unsuccessful: ' + xhr.status)
+            }
+          }
+        }
+        xhr.open('GET', 'http://www.somewhere-else.com/page/', true)
+        xhr.send(null)
+    </script>
+    <script type="text/javascript">
+    // preflighted Requests
+    // Origin: http://www.nconline.net
+    // Access-Control-Request-Method: POST
+    // Access-Controle-Request-Header: NCZ
+
+    //
+    // Access-control-Allow-Origin: http://www.nczonline.net
+    // Access-Control-Allow-Methods: POST, GET
+    // Access-Control-Allow-Header: NCZ
+    // Access-Control-Max-age: 1728000
+    
+    </script>
+  </body>
+</html>

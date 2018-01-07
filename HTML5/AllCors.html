@@ -13,8 +13,25 @@
         } else {
           xhr = new XDomainRequest()
           xhr.open(method,url)
+        } else{
+          xhr = null
         }
+        return xhr
       }
+
+      var request = createCORSRequest('GET', 'http://www.somewhere-else.com/page')
+      if (request) {
+        request.onload = function() {
+          console.log('onload')
+        }
+        request.send()
+      }
+      // abort()
+      // onerror()
+      // onload()
+      // responseText()
+      // send()
+      // create()
     </script>
   </body>
 </html>

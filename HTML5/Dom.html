@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dom</title>
+  </head>
+  <body>
+    <h1>dom模型</h1>
+    <script type="text/javascript">
+    var selectForm = document.forms[0]
+    var imglist = document.images
+    for (var i = 0; i < imglist.length; i++) {
+      if (imglist[i] === 'banner.gif') {
+        // 寻找页面的具体图片
+      }
+    }
+    document.links instanceof HTMLCollection
+    document.images instanceof HTMLCollection
+    document.forms instanceof HTMLCollection
+    document.embeds instanceof HTMLCollection
+    //
+    document.myForm = document.forms.myForm
+
+    var script = document.script
+    if (script.length !== 0) {
+      console.log('当前网页有脚本')
+    }
+    document.script.myScript
+    var allSheets = [].slice
+    </script>
+  </body>
+</html>

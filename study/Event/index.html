@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <ul>
+      <li class="yelp haha">1</li>
+      <li class="yelp haha">2</li>
+      <li class="yelp haha">3</li>
+      <li class="yelp haha">4</li>
+      <li class="yelp haha">5</li>
+      <li class="yelp haha">6</li>
+      <li class="yelp haha">7</li>
+      <li class="yelp haha">8</li>
+      <li class="yelp haha">9</li>
+      <li class="yelp haha">10</li>
+      <li class="yelp haha">11</li>
+      <li class="yelp haha">12</li>
+      <li class="yelp haha">13</li>
+      <li class="yelp haha">14</li>
+      <script type="text/javascript">
+        var test = function(value, none, hidden) {
+          var testA = document.querySelectorAll('.yelp')
+          if (testA[(testA.length -1)].innerHTML == value) {
+            console.log('yes')
+          }
+          for (var i = 0; i < testA.length; i++) {
+            if(testA[i].innerHTML == none) {
+              testA[i].style.display = 'none'
+            } else if (testA[i].innerHTML == hidden) {
+              testA[i].style.display = 'none'
+            }
+          }
+        }
+        test('14', '3', '12')
+      </script>
+    </ul>
+  </body>
+</html>

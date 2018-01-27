@@ -5,6 +5,14 @@
     <title>index</title>
   </head>
   <body>
+    <dl class="">
+      <dt  class="flag">1</dt>
+      <dt  class="flag">2</dt>
+      <dt  class="flag">3</dt>
+      <dt  class="flag">haha</dt>
+      <dt  class="flag">5</dt>
+      <dt  class="flag">6</dt>
+    </dl>
     <ul>
       <li class="yelp haha">1</li>
       <li class="yelp haha">2</li>
@@ -21,20 +29,49 @@
       <li class="yelp haha">13</li>
       <li class="yelp haha">14</li>
       <script type="text/javascript">
-        var test = function(value, none, hidden) {
-          var testA = document.querySelectorAll('.yelp')
-          if (testA[(testA.length -1)].innerHTML == value) {
-            console.log('yes')
-          }
-          for (var i = 0; i < testA.length; i++) {
-            if(testA[i].innerHTML == none) {
-              testA[i].style.display = 'none'
-            } else if (testA[i].innerHTML == hidden) {
-              testA[i].style.display = 'none'
+        // var test = function(value, none, hidden) {
+        //   var testA = document.querySelectorAll('.yelp')
+        //   if (testA[(testA.length -1)].innerHTML == value) {
+        //     console.log('yes')
+        //   }
+        //   for (var i = 0; i < testA.length; i++) {
+        //     if(testA[i].innerHTML == none) {
+        //       testA[i].style.display = 'none'
+        //     } else if (testA[i].innerHTML == hidden) {
+        //       testA[i].style.display = 'none'
+        //     }
+        //   }
+        // }
+        // test('14', '3', '12')
+        var testHidden = {
+          find: function(arr) {
+            var todo = false
+            var firstD = document.querySelectorAll('.flag')
+            for (var i = 0; i < firstD.length; i++) {
+              if(arr.indexOf(firstD[i].innerHTML) != -1) {
+                console.log(firstD[i])
+                todo = true
+                return todo
+              }
             }
+          },
+          hidden: function(arr) {
+            var findC = document.querySelectorAll('.yelp')
+            for (var i = 0; i < findC.length; i++) {
+              if(arr.indexOf(findC[i].innerHTML) != -1) {
+                console.log(findC[i].innerHTML)
+                findC[i].style.display = 'none'
+              }
+            }
+          },
+        }
+
+        var main = function() {
+          if(testHidden.find(['haha'])) {
+            testHidden.hidden(['1', '7', '9', '12', '13'])
           }
         }
-        test('14', '3', '12')
+        main()
       </script>
     </ul>
   </body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index11</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var A = function(){}
+A.prototype = {name: 'sven'}
+
+var B = function() {}
+B.prototype = new A()
+
+var b = new B()
+console.log(b.name)
+</script>
+  </body>
+</html>

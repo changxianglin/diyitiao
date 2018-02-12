@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index01</title>
+  </head>
+  <body>
+<script type="text/javascript">
+  var makeSound = function (animal) {
+    if(animal instanceof Duck) {
+      console.log('嘎嘎嘎')
+    } else if(animal instanceof Chicken) {
+      console.log('咯咯咯')
+    }
+  }
+
+  var Duck = function(){}
+  var Chicken = function() {}
+
+  makeSound(new Duck())
+  makeSound(new Chicken())
+</script>
+  </body>
+</html>

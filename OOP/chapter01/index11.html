@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index11</title>
+  </head>
+  <body>
+<script type="text/javascript">
+Function.prototype.bind = function(context) {
+  var self = this
+  return function() {
+    return self.apply(context, arguments)
+  }
+}
+
+var obj = {
+  name: 'sven'
+}
+
+var func = function() {
+  alert(this.name)
+}.bind(obj)
+
+func()
+</script>
+  </body>
+</html>

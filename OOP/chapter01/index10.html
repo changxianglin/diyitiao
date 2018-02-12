@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index10</title>
+  </head>
+  <body>
+<script type="text/javascript">
+  var obj1 = {
+    name: 'sven'
+  }
+
+  var obj2 = {
+    name: 'anne'
+  }
+
+  window.name = 'window'
+
+  var getName = function() {
+    alert(this.name)
+  }
+
+  getName()
+  getName.call(obj1)
+  getName.call(obj2)
+</script>
+  </body>
+</html>

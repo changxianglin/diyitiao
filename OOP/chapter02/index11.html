@@ -9,7 +9,7 @@
     <button type="button" name="button" id = 'undo'>点击我执行命令</button>
     <script type="text/javascript">
     var Tv = {
-      open： function() {
+      open: function() {
         console.log('打开电视机')
       },
       close: function() {
@@ -17,25 +17,25 @@
       }
     }
 
-    var createCommand = function() {
+    var createCommand = function(receiver) {
 
-       var execute = function() {
-         return receiver.open()
-       }
+      var excute = function() {
+        return receiver.open()
+      }
 
-       var undo = function() {
-         return receiver.close()
-       }
+      var undo = function() {
+        return receiver.close()
+      }
 
-       return {
-         execute: execute,
-         undo: undo
-       }
+      return {
+        excute: excute,
+        undo: undo
+      }
     }
 
-    var setCommand = function() {
+    var setCommand = function(command) {
       document.getElementById('execute').onclick = function() {
-        command.execute()
+        command.excute()
       }
       document.getElementById('undo').onclick = function() {
         command.undo()

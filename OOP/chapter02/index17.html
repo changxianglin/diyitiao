@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index17</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var throttle = function(fn, interval) {
+  var __self = fn
+  var timer = ''
+  var firstTime = true
+
+  return function() {
+    var args = []
+    __me = this
+
+    if(firstTime) {
+      __self.apply(__me, args)
+      return firstTime = false
+    }
+
+    if(timer) {
+      return false
+    }
+
+    timer = setTimeout( function() {
+      clearTimeout(timer)
+      timer = null
+      __self.apply(__me, args)
+    }, interval || 500)
+  }
+}
+
+window.onresize = throttle(function() {
+  console.log(1)
+}, 500)
+</script>
+  </body>
+</html>

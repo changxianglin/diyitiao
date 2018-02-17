@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index11</title>
+  </head>
+  <body>
+    <div class="" id = 'div1'>
+      点击我执行命令
+    </div>
+    <script type="text/javascript">
+      var getSingle = function(fn) {
+        var result = null
+        return function() {
+          return result || (result = fn.apply(this, arguments))
+        }
+      }
+
+      var bindEvent = getSingle(function() {
+        document.getElementById('div1').onclick = function() {
+          alert('click')
+        }
+        return true
+      })
+
+      var render = function() {
+        console.log('开始渲染列表')
+        bindEvent()
+      }
+
+      render()
+      render()
+      render()
+    </script>
+  </body>
+</html>

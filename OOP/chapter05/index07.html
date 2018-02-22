@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index07</title>
+  </head>
+  <body>
+var MyImage = (
+function() {
+  var imgNode = document.createElement('img')
+  document.body.appendChild(imgNode)
+  var img = new Image
+
+  img.onload = function() {
+    imgNode.src = img.src
+  }
+
+  return {
+    setSrc: function(src) {
+      imgNode.src = 'file:// /c:/Users/svenzeng/Desktop/loading.gif'
+      img.src = src
+    }
+  }
+}
+)()
+
+MyImage.setSrc( 'http://imgcache.qq.com/music/photo/k/OOOGGDydoyAONK.jpg')
+  </body>
+</html>

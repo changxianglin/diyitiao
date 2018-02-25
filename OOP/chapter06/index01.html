@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index01</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var each = function(ary, callback) {
+  for(var i = 0, l = ary.length; i < l; i++) {
+    callback.call(ary[i], i, ary[i])
+  }
+}
+
+// each([1, 2, 3], function(i, n) {
+//   alert([i, n])
+// })
+
+var compare = function(ary1, ary2) {
+  if(ary1.length !== ary2.length) {
+    throw new Error('ary1 和 ary2 不相等')
+  }
+  each(ary1, function(i, n) {
+    if( n != ary2[i]) {
+      throw new Error('ary1 和 ary2 不相等')
+    }
+  })
+  alert('ary1 和 ary2 不相等')
+}
+compare([1, 2, 3], [1, 2, 4])
+</script>
+  </body>
+</html>

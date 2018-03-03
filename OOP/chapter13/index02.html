@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index01</title>
+  </head>
+  <body>
+<script type="text/javascript">
+function Player(name) {
+  this.name = name
+  this.enemy = null
+}
+
+Player.prototype.win = function() {
+  console.log(this.name + ' won')
+}
+
+Player.prototype.lose = function() {
+  console.log(this.name + ' lost')
+}
+
+Player.prototype.die = function() {
+  this.lose()
+  this.enemy.win()
+}
+
+// var player1 = new Player('皮蛋')
+// var player2 = new Player('小乖')
+//
+// player1.enemy = player2
+// player2.enemy = player1
+//
+// player1.die()
+
+var player1 = new Player('张三')
+var player5 = new Player('李四')
+
+player1.partners = [player1, player2, player3, player4]
+player1.enemies = [player5, player6, player7, player8]
+
+player5.partners = [player5, player6, player7, player8]
+player5.enemies = [player1, player2, player3, player4]
+
+var players = []
+
+function Player(name, teamColor) {
+  this.partners = []
+  this.enemies = []
+  this.state = []
+  this.name = name
+  this.teamColor = teamColor
+}
+
+Player.prototype.win = function() {
+  console.log('winner: ' + this.name)
+}
+
+Player.prototype.lose = function() {
+  console.log('loser: ' + this.name)
+}
+
+Player.prototype.die = function() {
+  var all_dead = true
+  this.state = 'dead'
+
+  for(var i = 0, partner; partner = this.partners[i++];) {
+    if(partner.state !== 'dead') {
+      all_dead = false
+      break
+    }
+  }
+  if(all_dead === true) {
+    this.lose()
+    for(var i = 0, partner; partner = this.partners[i++];) {
+      partner.lose()
+    }
+    for(var i = 0, enemy; enemy = this.enemies[i++];) {
+      enemy.win()
+    }
+  }
+}
+
+var playerFactory = function(name, teamColor) {
+  var newPlayer = new Player(name, teamColor)
+
+  for(var i = 0, player; player = players[i++];) {
+    if(player.teamColor === newPlayer.teamColor) {
+      player.partners.push(newPlayer)
+      newPlayer.partners.push(player)
+    } else {
+      player.enemies.push(newPlayer)
+      newPlayer.enemies.push(player)
+    }
+  }
+  players.push(newPlayer)
+
+  return newPlayer
+}
+
+var player1 = playerFactory('皮蛋', 'red')
+var player2 = playerFactory('小乖', 'red')
+var player3 = playerFactory('宝宝', 'red')
+var player4 = playerFactory('小强', 'red')
+
+var player5 = playerFactory('黑妞', 'blue')
+var player6 = playerFactory('葱头', 'blue')
+var player7 = playerFactory('胖墩', 'blue')
+var player8 = playerFactory('海盗', 'blue')
+
+player1.die()
+player2.die()
+player3.die()
+player4.die()
+</script>
+  </body>
+</html>

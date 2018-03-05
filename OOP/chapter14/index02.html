@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index02</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var Plane = function(){}
+
+Plane.prototype.fire = function() {
+  console.log('发射普通子弹')
+}
+
+var MissileDecorator = function(plane) {
+  this.plane = plane
+}
+
+MissileDecorator.prototype.fire = function() {
+  this.plane.fire()
+  console.log('发射导弹')
+}
+
+var AtomDecorator = function(plane) {
+  this.plane = plane
+}
+
+AtomDecorator.prototype.fire = function() {
+  this.plane.fire()
+  console.log('发射原子弹')
+}
+
+var plane = new Plane()
+plane = new MissileDecorator(plane)
+plane = new AtomDecorator(plane)
+
+plane.fire()
+</script>
+  </body>
+</html>

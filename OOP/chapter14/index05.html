@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index05</title>
+  </head>
+  <body>
+<script type="text/javascript">
+window.onload = function() {
+  alert(1)
+}
+
+var _onload = window.onload || function() {}
+
+window.onload = function() {
+  _onload()
+  alert(2)
+}
+</script>
+  </body>
+</html>

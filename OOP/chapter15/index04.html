@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index04</title>
+  </head>
+  <body>
+<script type="text/javascript">
+if(this.state === 'off') {
+  console.log('开弱光')
+  this.button.innerHTML = '下一次按我是强光'
+  this.state = 'weakLight'
+} else if (this.state === 'weakLight') {
+  console.log('开强光')
+  this.button.innerHTML = '下一次按我是关灯'
+  this.state = 'strongLight'
+} else if (this.state === 'strongLight') {
+  console.log('关灯')
+  this.button.innerHTML = '下一次按我是弱光'
+  this.state = 'off'
+}
+</script>
+  </body>
+</html>

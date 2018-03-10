@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index01</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var googleMap = {
+  show: function() {
+    console.log('开始渲染谷歌地图')
+  }
+}
+
+var baiduMap = {
+  show: function() {
+    console.log('开始渲染百度地图')
+  }
+}
+
+var renderMap = function(map) {
+  if(map.show instanceof Function) {
+    map.show()
+  }
+}
+
+renderMap(googleMap)
+renderMap(baiduMap)
+</script>
+  </body>
+</html>

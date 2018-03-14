@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <style media="screen">
+      .div1 {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+      }
+      .div2 {
+        background-color: blue;
+        width: 200px;
+        height: 200px;
+      }
+      .div3 {
+        background-color: green;
+        width: 200px;
+        height: 200px;
+      }
+      .add {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" name="button" class="btn1">典籍</button>
+    <div class="div1">
+
+    </div>
+    <button type="button" name="button" class="btn2">典籍</button>
+    <div class="div2">
+
+    </div>
+    <button type="button" name="button" class="btn3">典籍</button>
+    <div class="div3">
+
+    </div>
+
+    <script type="text/javascript">
+      var Button = function(select) {
+        var find = document.querySelector(select)
+        return find
+      }
+
+      var btn1 = new Button('.btn1')
+      var btn2 = new Button('.btn2')
+      var btn3 = new Button('.btn3')
+
+      var div1 = new Button('.div1')
+      var div2 = new Button('.div2')
+      var div3 = new Button('.div3')
+
+      var Flag = function(elements,  name) {
+          this.active = function() {
+            elements.classList.add(name)
+          }
+      }
+
+      var todo1 = new Flag(div1, 'add')
+      var todo2 = new Flag(div2, 'add')
+      var todo3 = new Flag(div3, 'add')
+
+      var Reset = function(elements,  name) {
+        this.actions = function() {
+          elements.classList.remove(name)
+        }
+      }
+
+      var reset1 = new Reset(div1, 'add')
+      var reset2 = new Reset(div2, 'add')
+      var reset3 = new Reset(div3, 'add')
+
+      var targetFn = function(element, type, flag, fn, func) {
+        var state = false
+        element.addEventListener(type, function() {
+          if(state) {
+            func.actions()
+            state = false
+          } else {
+            fn.active()
+            state = true
+          }
+        })
+      }
+
+      targetFn(btn1, 'click', 'add', todo1, reset1)
+      targetFn(btn2, 'click', 'add', todo2, reset2)
+      targetFn(btn3, 'click', 'add', todo3, reset3)
+    </script>
+  </body>
+</html>

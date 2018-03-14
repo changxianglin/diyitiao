@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index08</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var myImage = (function() {
+  var imgNode = document.createElement('img')
+  document.body.appendChild(imgNode)
+
+  return function(src) {
+    imgNode.src = src
+  }
+})()
+
+var proxyImage = (function() {
+  var img = new Image
+
+  img.onload = function() {
+    myImage(this.src)
+  }
+
+  return function(src) {
+    myImage('file://Users/svenzeng/Desktop/loading.gif')
+    img.src = src
+  }
+})()
+
+proxyImage('http://imagecahe.qq.com/music// N/k/OOOGGDysoyAONK.jpg')
+</script>
+  </body>
+</html>

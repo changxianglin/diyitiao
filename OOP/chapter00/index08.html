@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index08</title>
+  </head>
+  <body>
+<script type="text/javascript">
+function Person(name) {
+  this.name = name
+}
+
+Person.prototype.getName = function() {
+  return this.name
+}
+
+var a = new Person('sven')
+
+console.log(a.name)
+console.log(a.getName())
+console.log(Object.getPrototypeOf(a) === Person.typeof)
+</script>
+  </body>
+</html>

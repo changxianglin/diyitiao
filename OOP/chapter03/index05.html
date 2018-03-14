@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index05</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var nameSpace1 = {
+  a: function() {
+    alert(1)
+  },
+  b: function() {
+    alert(2)
+  }
+}
+
+var MyApp = {}
+
+MyApp.nameSpace = function(name) {
+  var parts = name.split('.')
+  var current = MyApp
+  for(var i in parts) {
+    if(!current[parts[i]]) {
+      current[parts[i]] = {}
+    }
+    current = current[parts[i]]
+  }
+}
+
+MyApp.nameSpace('event')
+MyApp.nameSpace('dom.style')
+
+console.dir(MyApp)
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index02</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var Model = function(sex) {
+  this.sex = sex
+}
+
+Model.prototype.takePhoto = function() {
+  console.log('sex=' + this.sex + ' underwear=' + this.underwear)
+}
+
+var maleModel = new Model('male')
+var femaleModel = new Model('female')
+
+for(var i = 0; i <= 50; i++) {
+  maleModel.underwear = 'underwear' + i
+  maleModel.takePhoto()
+}
+
+for(var j = 0; j <= 50; j++) {
+  femaleModel.underwear = 'underwear' + j
+  femaleModel.takePhoto()
+}
+</script>
+  </body>
+</html>

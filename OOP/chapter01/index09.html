@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index09</title>
+  </head>
+  <body>
+    <div class="" id = 'div1'>
+      我是一个div
+    </div>
+<script type="text/javascript">
+document.getElementById = (function(func) {
+  return function(){
+    return func.apply(document, arguments)
+  }
+})(document.getElementById)
+
+var getId = document.getElementById
+var div = getId('div1')
+
+alert(div.id)
+</script>
+  </body>
+</html>

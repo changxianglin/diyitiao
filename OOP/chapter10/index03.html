@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index03</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var Beverage = function(){}
+
+Beverage.prototype.boilWater = function() {
+  console.log('把水煮沸')
+}
+
+Beverage.prototype.brew = function() {}
+
+Beverage.prototype.pourInCup = function() {}
+
+Beverage.prototype.addCondiments = function() {}
+
+Beverage.prototype.init = function() {
+  this.boilWater()
+  this.brew()
+  this.pourInCup()
+  this.addCondiments()
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index07</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var obj1 = {
+  name: 'sven',
+  getName: function() {
+    return this.name
+  }
+}
+
+var obj2 = {
+  name: 'anne'
+}
+
+console.log(obj1.getName())
+console.log(obj1.getName.call(obj2))
+</script>
+  </body>
+</html>

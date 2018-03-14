@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index16</title>
+  </head>
+  <body>
+<script type="text/javascript">
+console.log('------')
+
+(function() {
+  Array.prototype.push.call(arguments, 4)
+  console.log(arguments)
+})(1, 2, 3)
+</script>
+  </body>
+</html>

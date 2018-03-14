@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index08</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var obj = {
+  myName: 'sven',
+  getName: function() {
+    return this.myName
+  }
+}
+
+console.log(obj.getName())
+
+var getName2 = obj.getName
+console.log(getName2())
+</script>
+  </body>
+</html>

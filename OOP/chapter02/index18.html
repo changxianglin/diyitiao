@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index18</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var ary = []
+ for (var i = 1; i <= 1000; i++) {
+   ary.push(i)
+ }
+
+ var renderFriendList = function(data) {
+   for(var i = 0, l = data.length; i < l; i++) {
+     var div = document.createElement('div')
+     div.innerHTML = i
+     document.body.appendChild(div)
+   }
+ }
+
+ // renderFriendList(ary)
+
+ console.log('------')
+
+ var timerChunk = function(ary, fn, count) {
+   var obj = ''
+   var t = ''
+
+   var len = ary.length
+
+   var start = function() {
+     for (var i = 0; i < Math.min(count || 1, ary.length); i++) {
+       var obj = ary.shift()
+       fn(obj)
+     }
+   }
+
+   return function() {
+     t = setInterval(function() {
+       if(ary.length === 0) {
+         return clearInterval(t)
+       }
+       start()
+     }, 200)
+   }
+}
+
+var ary = []
+
+for(var i = 1; i <= 1000; i++) {
+  ary.push(i)
+}
+
+var renderFriendList = timerChunk(ary, function(n) {
+  var div = document.createElement('div')
+  div.innerHTML = n
+  document.body.appendChild(div)
+}, 8)
+
+renderFriendList()
+</script>
+  </body>
+</html>

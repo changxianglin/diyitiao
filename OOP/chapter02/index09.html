@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index09</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var extent = function() {
+  var value = 0
+  return {
+    call: function() {
+      value++
+      console.log(value)
+    }
+  }
+}
+
+var extent = extent()
+
+extent.call()
+extent.call()
+extent.call()
+console.log('------')
+
+var extent = {
+  value: 1,
+  call: function() {
+    this.value++
+    console.log(this.value)
+  }
+}
+
+extent.call()
+extent.call()
+extent.call()
+console.log('======')
+
+var Extent = function() {
+  this.value = 0
+}
+
+Extent.prototype.call = function() {
+  this.value++
+  console.log(this.value)
+}
+
+var extent = new Extent()
+
+extent.call()
+extent.call()
+extent.call()
+</script>
+  </body>
+</html>

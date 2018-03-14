@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index06</title>
+  </head>
+  <body>
+    <button type="button" name="button" id = 'button'></button>
+<script type="text/javascript">
+var _getElementById = document.getElementById
+
+document.getElementById = function() {
+  alert(1)
+  return _getElementById.apply(document, arguments)
+}
+
+var button = document.getElementById('button')
+</script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index12</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var mult = function() {
+  console.log('开始计算乘积')
+  var a = 1
+  for(var i = 0, l = arguments.length; i < l; i++) {
+    a = a * arguments[i]
+  }
+  console.log(a)
+  return a
+}
+
+mult(2, 3)
+mult(2, 3, 4)
+</script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index05</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var Upload = function() {}
+
+var UploadFactory = (function() {
+  var uploadObj
+  return {
+    create: function() {
+      if(uploadObj) {
+        return uploadObj
+      }
+      return uploadObj = new Upload()
+    }
+  }
+})()
+</script>
+  </body>
+</html>

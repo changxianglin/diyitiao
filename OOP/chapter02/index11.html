@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index11s</title>
+  </head>
+  <body>
+    <button type="button" name="button" id = 'execute'>点击我执行命令</button>
+    <button type="button" name="button" id = 'undo'>点击我执行命令</button>
+    <script type="text/javascript">
+    var Tv = {
+      open: function() {
+        console.log('打开电视机')
+      },
+      close: function() {
+        console.log('关上电视机')
+      }
+    }
+
+    var createCommand = function(receiver) {
+
+      var excute = function() {
+        return receiver.open()
+      }
+
+      var undo = function() {
+        return receiver.close()
+      }
+
+      return {
+        excute: excute,
+        undo: undo
+      }
+    }
+
+    var setCommand = function(command) {
+      document.getElementById('execute').onclick = function() {
+        command.excute()
+      }
+      document.getElementById('undo').onclick = function() {
+        command.undo()
+      }
+    }
+
+    setCommand(createCommand(Tv))
+    </script>
+  </body>
+</html>

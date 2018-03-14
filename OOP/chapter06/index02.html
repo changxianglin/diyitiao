@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index02</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var reverseEach = function(ary, callback) {
+  for(var l = ary.length - 1; l >= 0; l--) {
+    callback(l, ary[l])
+  }
+}
+
+reverseEach([0, 1, 2], function(i, n) {
+  console.log(n)
+})
+</script>
+  </body>
+</html>

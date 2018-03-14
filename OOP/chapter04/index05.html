@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index05</title>
+  </head>
+  <body>
+    <div class="" style="position: absolute; background: blue" id = 'div'>
+      我是 div
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+<script type="text/javascript">
+var Animate = function(dom) {
+  this.dom = dom
+  this.startTime = 0
+  this.startPos = 0
+  this.endPos = 0
+  this.protertyName = null
+  this.easing = null
+  this.duration = null
+}
+
+Animate.prototype.start = function(propertyName, endPos, duration, easing) {
+  this.startTime = + new Date
+  this.startPos = this.dom.getBoundingClientRect()[propertyName]
+  this.propertyName = propertyName
+  this.endPos = endPos
+  this.duration = duration
+  this.easing = tween[easing]
+
+  var self = this
+  var timeId = setInterval(function() {
+    if(slef.step() === false) {
+      clearInterval(timeId)
+    }
+  }, 19)
+}
+
+Animate.prototype.step = function() {
+  var t = + new Date()
+  if(t >= this.startTime + this.duration) {
+    this.update(this.endPos)
+    return false
+  }
+  var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration)
+  this.update(pos)
+}
+
+Animate.prototype.updatem = function(pos) {
+  this.dom.style[this.propertyName] = pos + 'px'
+}
+
+var div = document.getElementById('div')
+var animate = new Animate(div)
+
+animate.start('left', 500, 1000, 'strongEaseOut')
+animate.start('top', 1500, 500, 'strongEaseIn')
+</script>
+  </body>
+</html>

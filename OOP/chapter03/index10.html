@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index10</title>
+  </head>
+  <body>
+    <div class="" id = 'loginBtn'>
+      登录
+    </div>
+<script type="text/javascript">
+var getSingle = function(fn) {
+  var result
+  return function() {
+    return result || (result = fn.apply(this, arguments))
+  }
+}
+
+var createLoginLayer = function() {
+  var div = document.createElement('div')
+  div.innerHTML = '我是登录浮窗'
+  div.style.display = 'none'
+  document.body.appendChild(div)
+  return div
+}
+
+var createSingletonLoginLayer = getSingle(createLoginLayer)
+
+document.getElementById('loginBtn').onclick = function() {
+  var loginLayer = createSingletonLoginLayer()
+  loginLayer.style.display = 'block'
+}
+
+console.log('------')
+
+
+var createSingleIframe = getSingle(function() {
+  var iframe = document.createElement('iframe')
+  document.body.appendChild(iframe)
+  return iframe
+})
+
+document.getElementById('loginBtn').onclick = function() {
+  var loginLayer = createSingleIframe()
+  loginLayer.src = 'http://baidu.com'
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index-nav</title>
+  </head>
+  <body>
+    <div class="nav">
+
+    </div>
+    <script type="text/javascript">
+      var nav = document.querySelector('.nav')
+      var add = document.createElement('ul')
+      add.classList.add('layui-nav')
+      nav.appendChild(add)
+
+      for (var i = 0; i < 3; i++) {
+        var addC = document.querySelector('ul')
+        var lia = document.createElement('li')
+        lia.classList.add('layui-nav-item')
+        addC.appendChild(lia)
+      }
+
+      links = ['http://www.douban.com/', 'http://www.sina.com.cn', 'http://www.bilibili.com/']
+      websits = ['douban', 'sina', 'biblibibli']
+
+        var link = document.querySelectorAll('li')
+        for (var i = 0; i < link.length; i++) {
+          var websit = document.createElement('a')
+          websit.href = links[i]
+          websit.innerHTML = websits[i]
+          link[i].appendChild(websit)
+        }
+    </script>
+  </body>
+</html>

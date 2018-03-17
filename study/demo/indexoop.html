@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index-demo</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var Folder  = function(name) {
+        this.name = name
+        this.parent = null
+        this.files = []
+      }
+
+      Folder.prototype.add = function(file) {
+        file.parent = this
+        this.files.push(file)
+      }
+
+      Folder.prototype.scan = function() {
+        console.log('开始扫描文件夹：' + this.name)
+        for(var i = o, file, files = this.files; file = files[i++];) {
+          file.scan()
+        }
+      }
+    </script>
+  </body>
+</html>

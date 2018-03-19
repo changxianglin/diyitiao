@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index-event-key</title>
+  </head>
+  <body>
+    <div class="">
+      <h1>test</h1>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var log = console.log.bind(console)
+
+    var test = function() {
+      console.log(new Date())
+      loop()
+    }
+
+      var loop = function() {
+        setTimeout(function() {
+          test()
+        }, 1000)
+      }
+
+      // loop()
+
+      // event
+      var eventTest = function() {
+        var e = {
+          action: {},
+          keydowns: {},
+        }
+
+        window.addEventListener('keydown', function(event) {
+          e.keydowns[event.key] = true
+        })
+        window.addEventListener('keyup', function(event) {
+          e.keydowns[event.key] = false
+        })
+
+        e.registerAction = function(key, callback) {
+          e.action[key] = callback
+        }
+
+        setInterval(function() {
+          var actions = Object.keys(e.action)
+          for(var i = 0; i < actions.length; i++) {
+            var key = actions[i]
+            if(e.keydowns[key]) {
+              e.action[key]()
+            }
+          }
+        }, 1000/30)
+
+        return e
+      }
+
+      var _main = function() {
+        var test = eventTest()
+
+        test.registerAction('a', function() {
+          console.log('a')
+        })
+
+        test.registerAction('d', function() {
+          console.log('d')
+        })
+
+        test.registerAction('s', function() {
+          console.log('s')
+        })
+      }
+
+      _main()
+  </script>
+
+  <script type="text/javascript">
+          var GuaGame = function() {
+          var g = {
+              actions: {},
+              keydowns: {},
+          }
+
+          // events
+          window.addEventListener('keydown', function(event){
+              g.keydowns[event.key] = true
+          })
+          window.addEventListener('keyup', function(event){
+              g.keydowns[event.key] = false
+          })
+          //
+          g.registerAction = function(key, callback) {
+              g.actions[key] = callback
+          }
+          // timer
+          setInterval(function(){
+              // events
+              var actions = Object.keys(g.actions)
+              for (var i = 0; i < actions.length; i++) {
+                  var key = actions[i]
+                  if(g.keydowns[key]) {
+                      // 如果按键被按下, 调用注册的 action
+                      g.actions[key]()
+                  }
+              }
+          }, 1000/30)
+          return g
+        }
+        var __main = function() {
+          var game = GuaGame()
+
+          game.registerAction('a', function(){
+              console.log('a')
+          })
+          game.registerAction('d', function(){
+              console.log('d')
+          })
+          game.registerAction('f', function(){
+              console.log('f')
+          })
+        }
+        // __main()
+  </script>
+</html>

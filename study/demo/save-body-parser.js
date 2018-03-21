@@ -12,7 +12,7 @@ app.get('/api', useJson, function(req, res) {
 })
 
 app.post('/api', useJson, function(req, res) {
-  console.log(req.body.name)
+  console.log(req.body)
   res.send('post api')
 })
 

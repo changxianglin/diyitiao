@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>array</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    let items = new Array(2)
+    console.log(items.length)
+    console.log(items[0])
+    console.log(items[1])
+    console.log('===')
+    items = new Array('2')
+    console.log(items.length)
+    console.log(items[0])
+    console.log('===')
+    items = new Array(1, 2)
+    console.log(items.length)
+    console.log(items[0])
+    console.log(items[1])
+    console.log('===')
+    items = new Array(3, "2")
+    console.log(items.length)
+    console.log(items[0])
+    console.log(items[1])
+    console.log('===')
+    </script>
+    <script type="text/javascript">
+    let itemss = Array.of(1, 2)
+    console.log(itemss.length)
+    console.log(itemss[0])
+    console.log(itemss[1])
+    console.log('===')
+    itemss = Array.of(2)
+    console.log(itemss.length)
+    console.log(itemss[0])
+    console.log('===')
+    itemss = Array.of('2')
+    console.log(itemss.length)
+    console.log(itemss[0])
+    </script>
+    <script type="text/javascript">
+    function translate() {
+      return Array.from(arguments, (value) => value + 1)
+    }
+
+    let numbers = translate(1, 2, 3)
+
+    console.log(numbers)
+    </script>
+    <script type="text/javascript">
+    let numberss = [25, 30, 35, 40, 45]
+
+    console.log(numberss.find(n => n > 33))
+    console.log(numberss.findIndex(n => n > 33))
+    </script>
+    <script type="text/javascript">
+    var number = [1, 2, 3, 4]
+
+    number.fill(1, 2)
+
+    console.log(number.toString())
+    console.log('===')
+
+    number.fill(0, 1, 3)
+    console.log(number.toString())
+    </script>
+  </body>
+</html>

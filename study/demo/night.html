@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sayHi() {
+        console.log('Hi!')
+      }
+
+      sayHi()
+
+      var sayHi2 = sayHi
+
+      sayHi2()
+
+      console.log('flag')
+
+      var sayHi = new Function('console.log(\"Hi!\")') // 记得 Function 的 F 得大写
+      sayHi()
+
+      console.log('number')
+
+      var numbers = [1, 5, 8, 4, 7, 10, 2, 6]
+      numbers.sort(function(first, second) {
+        return first - second
+      })
+      console.log(numbers)
+
+      numbers.sort()
+      console.log(numbers) // 默认转换字符串
+      
+    </script>
+  </body>
+</html>

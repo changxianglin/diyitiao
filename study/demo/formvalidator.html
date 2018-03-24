@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>formvalidator</title>
+  </head>
+  <body>
+    <input type="text" name="" value="" class="input1">
+    <input type="text" name="" value="" class="input2">
+    <input type="text" name="" value="" class="input3">
+    <input type="text" name="" value="" class="input4">
+    <script type="text/javascript">
+      var valida = function(element, select) {
+        var evs = document.querySelector(element)
+        evs.addEventListener('keyup', function() {
+          var evt = document.querySelector(select)
+          var flag = evt.value.length
+          console.log(flag)
+          // console.log(Boolean(flag))
+          if(flag < 2) {
+            console.log('should to input' + select)
+          }
+        })
+      }
+
+      valida('.input1', '.input1')
+      valida('.input2', '.input2')
+      valida('.input3', '.input3')
+      valida('.input4', '.input4')
+    </script>
+  </body>
+</html>

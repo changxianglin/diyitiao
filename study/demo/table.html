@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>table</title>
+  </head>
+  <body>
+    <table class="table1">
+      <thead class="thead1">
+        <th><input type="checkbox" name="" value="" class="ch-main"></th>
+        <th>2</th>
+        <th>3</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" name="main" value="main" class="checkb"></td>
+          <td>456</td>
+          <td>789</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="" value="" class="checkb"></td>
+          <td>efg</td>
+          <td>hij</td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      var btn = function() {
+        var evs = document.querySelector('.ch-main')
+        var checkb = document.querySelectorAll('.checkb')
+        var len = checkb.length
+        evs.addEventListener('click', function(event) {
+          console.log(event.target.checked)
+          var flag = event.target.checked
+          if(flag) {
+            for(var i = 0; i < len; i++) {
+              checkb[i].checked = true
+            }
+          } else {
+            for(var i = 0; i < len; i++) {
+              checkb[i].checked = false
+            }
+          }
+        })
+      }
+
+      btn()
+    </script>
+  </body>
+</html>

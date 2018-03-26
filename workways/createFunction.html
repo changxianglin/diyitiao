@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>createFunction</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person(name, age, job) {
+        this.name = name
+        this.age = age
+        this.job = job
+        this.sayName = function() {
+          alert(this.name)
+        }
+      }
+
+      var person1 = new Person('Nicholas', 29, 'Software Engineer')
+      var person2 = new Person('Greg', 27, 'Doctor')
+
+      console.log(person1.constructor == Person)
+      console.log(person2.constructor == Person)
+
+      console.log('instanceof')
+
+      console.log(person1 instanceof Object)
+      console.log(person1 instanceof Person)
+      console.log(person2 instanceof Object)
+      console.log(person2 instanceof Person)
+
+      console.log('have Omagic')
+      var o = new Object()
+      Person.call(o, 'Kisten', 25, 'Nurse') // call apply bind 改变作用域 this
+      o.sayName()
+    </script>
+  </body>
+</html>

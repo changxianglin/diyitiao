@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>for-in</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var log = console.log.bind(console)
+
+        var o = {
+          toString: function() {
+            return 'My Object'
+          }
+        }
+
+        for(var prop in o) {
+          if(prop == 'toString') {
+            log('Found toString')
+          }
+        }
+
+        log('---')
+
+        function Person() {}
+
+        Person.prototype.name = 'Nicholas'
+        Person.prototype.age = 29
+        Person.prototype.job = 'Software Engineer'
+        Person.prototype.sayName = function() {
+          log(this.name)
+        }
+
+        var keys = Object.keys(Person.prototype)
+        log(keys)
+
+        var testKeys = Object.keys(Person)
+        log(testKeys)
+
+        log('===')
+
+        var p1 = new Person()
+        p1.name = 'Rob'
+        p1.age = 31
+        var p1keys = Object.keys(p1)
+        log(p1keys)
+
+        var keyss = Object.getOwnPropertyNames(Person.prototype)
+        log(keyss)
+        
+    </script>
+  </body>
+</html>

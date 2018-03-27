@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>forin</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+     var log = console.log.bind(console)
+
+      function Person() {}
+
+      Person.prototype.name = 'Nicholas'
+      Person.prototype.age = 29
+      Person.prototype.job = 'Software Engineer'
+      Person.prototype.sayName = function() {
+        console.log(this.name)
+      }
+
+      var person1 = new Person()
+      var person2 = new Person()
+
+      console.log(person1.hasOwnProperty('name'))
+      console.log('name' in person1)
+
+      person1.name = 'Greg'
+      log(person1.name)
+      log(person1.hasOwnProperty('name'))
+
+      log(person2.name)
+      log(person2.hasOwnProperty('name'))
+      log('name' in person2)
+
+      delete person1.name
+      log(person1.name)
+      log(person1.hasOwnProperty('name'))
+      log('name' in person1)
+
+      // 实现办法
+      function hasPrototyeProperty(object, name) {
+        return !object.hasOwnProperty(name) && (name in object)
+      }
+    </script>
+  </body>
+</html>

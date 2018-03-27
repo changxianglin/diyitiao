@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>hasOwnProperty</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person() {}
+
+      Person.prototype.name = 'Nicholas'
+      Person.prototype.age = '29'
+      Person.prototype.job = 'Software Engineer'
+      Person.prototype.sayName = function() {
+        console.log(this.name)
+      }
+
+      var person1 = new Person()
+      var person2 = new Person()
+
+      console.log(person1.hasOwnProperty('name'))
+
+      person1.name = 'Greg'
+      console.log(person1.name)
+      console.log(person1.hasOwnProperty('name'))
+      console.log(person2.name)
+      console.log(person2.hasOwnProperty('name'))
+
+      delete person1.name
+      console.log(person1.name)
+      console.log(person1.hasOwnProperty('name'))
+    </script>
+  </body>
+</html>

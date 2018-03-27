@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>constructor</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function Person() {}
+
+      Person.prototype = {
+        name: 'Nicholas',
+        age: 29,
+        job: 'Software Engineer',
+        sayName: function() {
+          log(this.name)
+        }
+      }
+
+      var friend = new Person()
+
+      log(friend instanceof Object)
+      log(friend instanceof Person)
+      log(friend.constructor == Person)
+      log(friend.constructor == Object)
+    </script>
+  </body>
+</html>

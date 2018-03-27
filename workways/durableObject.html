@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>durable objects</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var log = console.log.bind(console)
+
+        function Person(name, age, job) {
+          var o = new Object()
+
+          o.sayName = function() {
+            log(name)
+          }
+
+          return o
+        }
+
+        var friends = Person('Nicholas', 29, 'Software Engineer')
+        friends.sayName()
+    </script>
+  </body>
+</html>

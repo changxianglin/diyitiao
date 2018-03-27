@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>parasitic</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function Person(name, age, job) {
+        var o = new Object()
+        o.name = name
+        o.age = age
+        o.job = job
+        o.sayName = function() {
+          log(this.name)
+        }
+        return o
+      }
+
+      var friends = new Person('Nicholas', 29, 'Software Engineer')
+      friends.sayName()
+
+      function SpecialArray() {
+
+        var values = new Array()
+
+        values.push.apply(values, arguments)
+
+        values.toPipedString = function() {
+          return this.join('|')
+        }
+
+        return values
+      }
+
+      var colors = new SpecialArray('red', 'blue', 'green')
+
+      log(colors.toPipedString())
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Objectcreat</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      var person = {
+        name: 'Nicholas',
+        friends: ['Shelby', 'Coourt', 'Van']
+      }
+
+      var anotherPerson = Object.create(person, {
+        name: {
+          value: 'Greg'
+        }
+      })
+
+      log(anotherPerson.name)
+    </script>
+  </body>
+</html>

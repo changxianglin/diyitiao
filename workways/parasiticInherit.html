@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>parasiticInher</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function createAnother(original) {
+        var clone = Object(original)
+
+        clone.sayHi = function() {
+          log('hi')
+        }
+
+        return clone
+      }
+
+      var person = {
+        name: 'Nicholas',
+        friends: ['Shelby', 'Court', 'Van']
+      }
+
+      var anotherPerson = createAnother(person)
+      anotherPerson.sayHi()
+    </script>
+  </body>
+</html>

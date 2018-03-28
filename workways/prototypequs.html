@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>prototypeque</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function SuperType() {
+        this.colors = ['red', 'blue', 'green']
+      }
+
+      function SubType() {
+      }
+        SubType.prototype = new SuperType()
+
+        var instance1 = new SubType()
+        instance1.colors.push('black')
+        log(instance1.colors)
+
+        var instance2 = new SubType()
+        log(instance2.colors)
+    </script>
+  </body>
+</html>

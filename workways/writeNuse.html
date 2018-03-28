@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>noUse</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function SuperType() {
+        this.property = true
+      }
+
+      SuperType.prototype.getSuperValue = function() {
+        return this.property
+      }
+
+      function SubType() {
+        this.subproperty = false
+      }
+
+      SubType.prototype = new SuperType()
+
+      SubType.prototype = {
+        getSubValue: function() {
+          return this.subproperty
+        },
+
+        someOtherMethod: function() {
+          return false
+        }
+      }
+
+      var instance = new SubType()
+      // log(instance.getSuperValue()) 会出现错误
+
+      
+    </script>
+  </body>
+</html>

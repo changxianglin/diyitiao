@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>prototypeChain</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function SuperType() {
+        this.property = true
+      }
+
+      SuperType.prototype.getSuperValue = function() {
+        return this.property
+      }
+
+      function SubType() {
+        this.subproperty = false
+      }
+
+      SubType.prototype = new SuperType()
+
+      SubType.prototype.getSubValue = function() {
+        return this.subproperty
+      }
+
+      var instance = new SubType()
+      log(instance.getSuperValue())
+
+      //
+
+      log('----')
+      log(instance instanceof Object)
+      log(instance instanceof SuperType)
+      log(instance instanceof SubType)
+
+      log('====')
+      log(Object.prototype.isPrototypeOf(instance))
+      log(SuperType.prototype.isPrototypeOf(instance))
+      log(SubType.prototype.isPrototypeOf(instance))
+    </script>
+  </body>
+</html>

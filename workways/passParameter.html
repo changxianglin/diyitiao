@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>passParameter</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function SuperType(name) {
+        this.name = name
+      }
+
+      function SubType() {
+        SuperType.call(this, 'Nicholas')
+
+        this.age = 29
+      }
+
+      var instance = new SubType()
+      log(instance.name)
+      log(instance.age)
+    </script>
+  </body>
+</html>

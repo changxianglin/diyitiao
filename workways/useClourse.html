@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>useclousre</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      function createFunction() {
+        var result = new Array()
+
+        for(var i = 0 ; i < 10; i++) {
+          result[i] = function(num) {
+            return function() {
+              return num
+            }
+          }(i)
+        }
+        return result
+      }
+
+      createFunction()
+    </script>
+  </body>
+</html>

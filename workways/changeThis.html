@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chanageThis</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var log = console.log.bind(console)
+
+      var name = 'The Window'
+
+      var object = {
+        name: 'My Object',
+
+        getName: function() {
+          return this.name
+        }
+      }
+
+      object.getName()
+      (object.getName)()
+      (object.getaName = object.getName)()
+    </script>
+  </body>
+</html>
